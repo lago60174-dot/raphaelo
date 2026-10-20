@@ -4,6 +4,7 @@ import NavLinks from './NavLinks.astro';
 import { legalNav } from '../lib/nav';
 import { getSite } from '../lib/site';
 import { getMedia } from '../lib/media';
+import { whatsappUrl, ORDER_MESSAGE } from '../lib/whatsapp';
 const site = await getSite();
 const logo = getMedia('logo');
 const canUseWhatsApp =
@@ -47,7 +48,7 @@ const links = [
       {canUseWhatsApp ? (
         <a
           class="footer-cta"
-          href={`https://wa.me/${site.whatsapp.replace(/\D/g, '')}`}
+          href={whatsappUrl(site.whatsapp, ORDER_MESSAGE)}
           target="_blank"
           rel="noopener noreferrer"
         >

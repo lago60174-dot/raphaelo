@@ -1,6 +1,6 @@
 ---
 import { getSite } from '../lib/site';
-import { whatsappUrl } from '../lib/whatsapp';
+import { whatsappUrl, ORDER_MESSAGE } from '../lib/whatsapp';
 
 interface Props {
   label?: string;
@@ -9,7 +9,7 @@ interface Props {
 
 const {
   label = 'Commander',
-  message = 'Bonjour Raphaëlo Pizza, je voudrais commander.',
+  message = ORDER_MESSAGE,
 } = Astro.props;
 const site = await getSite();
 const whatsappConfirmed =

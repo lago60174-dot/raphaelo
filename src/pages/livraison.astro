@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import WhatsappButton from '../components/WhatsappButton.astro';
 import { getSite } from '../lib/site';
+import { DELIVERY_ORDER_MESSAGE } from '../lib/whatsapp';
 import { formatFcfa, telUrl } from '../lib/format';
 
 const site = await getSite();
@@ -30,7 +31,7 @@ const callZone = site.deliveryZones.find((z) => z.phone !== null);
           <div class="hero-actions">
             <WhatsappButton
               label="Commander sur WhatsApp"
-              message="Bonjour Raphaëlo Pizza, je souhaite commander en livraison. Mon quartier est : ____. Voici ma commande : ____ ."
+              message={DELIVERY_ORDER_MESSAGE}
             />
             <a class="btn btn--outline" href="/menu">
               Découvrir le menu <span aria-hidden="true">→</span>
@@ -195,7 +196,7 @@ const callZone = site.deliveryZones.find((z) => z.phone !== null);
       </div>
       <WhatsappButton
         label="Commander sur WhatsApp"
-        message="Bonjour Raphaëlo Pizza, je souhaite commander en livraison. Mon quartier est : ____. Ma commande : ____ ."
+        message={DELIVERY_ORDER_MESSAGE}
       />
     </section>
   </div>

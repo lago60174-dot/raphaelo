@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import MenuItemCard from '../components/MenuItemCard.astro';
 import WhatsappButton from '../components/WhatsappButton.astro';
 import { getMenu } from '../lib/menu';
+import { ORDER_MESSAGE } from '../lib/whatsapp';
 import { content } from '../lib/content';
 import { t } from '../lib/i18n';
 
@@ -60,7 +61,7 @@ const menu = getMenu();
     <p class="order">
       <WhatsappButton
         label={t(content.cta.commander)}
-        message="Bonjour Raphaëlo, je voudrais commander : "
+        message={ORDER_MESSAGE}
       />
     </p>
   </div>

@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import { getMedia } from '../lib/media';
 import NavLinks from './NavLinks.astro';
 import WhatsappButton from './WhatsappButton.astro';
+import { ORDER_MESSAGE } from '../lib/whatsapp';
 const logo = getMedia('logo');
 ---
 
@@ -13,10 +14,7 @@ const logo = getMedia('logo');
   <nav class="desktop" aria-label="Navigation principale">
     <NavLinks />
   </nav>
-  <WhatsappButton
-    label="Commander"
-    message="Bonjour Raphaëlo Pizza, je souhaite passer une commande. Pouvez-vous m’aider ?"
-  />
+  <WhatsappButton label="Commander" message={ORDER_MESSAGE} />
 </header>
 <nav class="mobile" aria-label="Navigation principale">
   <NavLinks />

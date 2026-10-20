@@ -167,8 +167,8 @@
       },
       "ambiance": ["conviviale", "quartier", "décontractée"],
       "description": {
-        "fr": "Reconnaissable à sa devanture rouge « Pizza – Raphaëlo – Glacier », l'agence d'Awae Escalier accueille avec des bancs en bois, des jardinières et une équipe en polos rouges toujours souriante. Le point de rendez-vous du quartier pour une pizza ou une glace.",
-        "en": "Recognisable by its red “Pizza – Raphaëlo – Glacier” front, the Awae Escalier branch welcomes you with wooden benches, planters and a smiling team in red polos. The neighbourhood meeting point for a pizza or an ice cream."
+        "fr": "Reconnaissable à sa devanture rouge « Pizza – Raphaëlo – Glacier », l'agence d'Awae Escalier accueille avec des bancs en bois, des jardinières et une équipe toujours souriante. Le point de rendez-vous du quartier pour une pizza ou une glace.",
+        "en": "Recognisable by its red “Pizza – Raphaëlo – Glacier” front, the Awae Escalier branch welcomes you with wooden benches, planters and an always-smiling team. The neighbourhood meeting point for a pizza or an ice cream."
       },
       "pointsForts": [
         {
@@ -180,8 +180,8 @@
           "en": "Wooden benches and greenery out front"
         },
         {
-          "fr": "Équipe en polos rouges",
-          "en": "Team in red polos"
+          "fr": "Équipe accueillante",
+          "en": "Welcoming team"
         }
       ],
       "images": {

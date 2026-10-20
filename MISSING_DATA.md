@@ -46,7 +46,7 @@ Adresse, téléphone, WhatsApp, horaires, coordonnées GPS : aucune agence n'en 
 - Facebook : lien trouvé dans des annuaires, page non ouverte. Instagram : non trouvé.
 - Mentions légales (raison sociale, RCCM, NIU, siège, directeur de publication, hébergeur) : vides.
 - Email, moyens de paiement, réservation et événements, délai de livraison : absents.
-- Domaine de production : à fournir via la variable `SITE_URL` au build (`SITE_URL=https://... npm run build`). Sans elle, canonical, Open Graph, sitemap et JSON-LD utilisent `https://example.com`.
+- Domaine de production : `https://raphaelo-five.vercel.app` par défaut (`astro.config.mjs`). Pour un domaine personnalisé, définir la variable `SITE_URL` au build (`SITE_URL=https://... npm run build`) ; canonical, Open Graph, sitemap et JSON-LD l'utilisent.
 - JSON-LD : les agences n'ont ni adresse, ni téléphone, ni horaires, ni GPS dans le JSON-LD tant que ces données sont `null` (ils s'ajoutent automatiquement une fois fournis ; les horaires demandent en plus une conversion de format). Pas de `sameAs` (TikTok non confirmé).
 - Image de partage `public/og-image.png` : composée avec le logo fourni (droits à confirmer). Elle est unique pour toutes les pages.
 - Textes légaux rédigés sans avis juridique.
