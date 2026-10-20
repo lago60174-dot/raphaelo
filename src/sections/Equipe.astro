@@ -1,0 +1,31 @@
+---
+import GalleryImage from '../components/GalleryImage.astro';
+import { content } from '../lib/content';
+import { collectionImages } from '../lib/gallery';
+import { t } from '../lib/i18n';
+
+// Photos de personnes : la section disparaît si showPeoplePhotos vaut false.
+const photo = collectionImages('equipe')[0];
+---
+
+{photo && (
+  <section class="container">
+    <h2>{t(content.sections.equipe.titre)}</h2>
+    <p>{t(content.sections.equipe.texte)}</p>
+    <GalleryImage id={photo.id} />
+  </section>
+)}
+
+<style>
+  section {
+    padding-top: 3rem;
+  }
+  h2 {
+    margin: 0 0 0.5rem;
+    font-size: 2rem;
+  }
+  p {
+    margin: 0 0 1rem;
+    max-width: 40rem;
+  }
+</style>

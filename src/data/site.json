@@ -1,0 +1,37 @@
+[
+  {
+    "id": "main",
+    "name": "Raphaëlo Pizza",
+    "slogan": "La Meilleure Pizza",
+    "whatsapp": "+237 690 90 90 76",
+    "deliveryHours": "7j/7, de 11 h à 21 h 30",
+    "deliveryFeeFcfa": null,
+    "facebookUrl": "https://web.facebook.com/RaphaeloPizza-279980386181026/",
+    "tiktokUrl": "https://www.tiktok.com/@raphaelo.pizza",
+    "source": "Logo fourni (slogan) ; TikTok @raphaelo.pizza (bio et publications : zones, créneau, téléphones)",
+    "toConfirm": ["deliveryFeeFcfa", "deliveryDelay", "legal"],
+    "deliveryZones": [
+      {
+        "city": "Yaoundé",
+        "area": "toute la ville",
+        "phone": null,
+        "image": null
+      },
+      {
+        "city": "Douala",
+        "area": "zones proches de Total Nkolbong",
+        "phone": "+237 695 76 28 14",
+        "image": "terrasse-douala"
+      }
+    ],
+    "deliveryDelay": null,
+    "legal": {
+      "companyName": null,
+      "rccm": null,
+      "niu": null,
+      "address": null,
+      "publisher": null,
+      "host": null
+    }
+  }
+]

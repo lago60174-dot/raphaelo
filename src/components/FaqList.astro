@@ -1,0 +1,29 @@
+---
+import { answeredFaq as entries } from '../lib/content';
+---
+
+<div>
+  {entries.map((e) => (
+    <details>
+      <summary>{e.q}</summary>
+      <p>{e.a}</p>
+    </details>
+  ))}
+</div>
+
+<style>
+  details {
+    max-width: 48rem;
+    border-bottom: 2px dotted var(--color-text-muted);
+  }
+  summary {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    cursor: pointer;
+    font: 600 1.125rem var(--font-display);
+  }
+  p {
+    margin: 0 0 1rem;
+  }
+</style>

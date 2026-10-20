@@ -1,0 +1,104 @@
+{
+  "nom": "Raphaëlo",
+  "slogan": {
+    "fr": "La Meilleure Pizza",
+    "en": "The Best Pizza"
+  },
+  "offres": [
+    {
+      "id": "pizza",
+      "label": {
+        "fr": "Pizza",
+        "en": "Pizza"
+      }
+    },
+    {
+      "id": "glacier",
+      "label": {
+        "fr": "Glacier",
+        "en": "Ice cream"
+      }
+    },
+    {
+      "id": "grill",
+      "label": {
+        "fr": "Grill",
+        "en": "Grill"
+      }
+    }
+  ],
+  "ville": "Yaoundé",
+  "pays": "Cameroun",
+  "codePays": "CM",
+  "devise": {
+    "code": "XAF",
+    "affichage": "FCFA"
+  },
+  "langues": ["fr", "en"],
+  "langueParDefaut": "fr",
+  "nombreAgences": 7,
+  "contact": {
+    "telephone": null,
+    "whatsapp": null,
+    "email": null,
+    "siteWeb": null
+  },
+  "reseaux": {
+    "tiktok": {
+      "handle": "raphalo.pizza",
+      "url": "https://www.tiktok.com/@raphalo.pizza",
+      "verifie": false,
+      "note": "Handle lu sur une capture TikTok (image odza-02) : vérifier l'orthographe exacte."
+    },
+    "facebook": null,
+    "instagram": null
+  },
+  "palette": {
+    "_note": "Approximations relevées sur les photos (éclairage variable) : remplacer par la charte officielle si elle existe.",
+    "rougeRaphaelo": "#E02029",
+    "rougeProfond": "#9E171E",
+    "noirArdoise": "#181B1C",
+    "blancCasse": "#FFFFFF",
+    "cremePate": "#F5EAC9",
+    "boisChaud": "#9C6945",
+    "jauneGlace": "#F5C400",
+    "orangeMobilier": "#F28C28",
+    "rosePistache": "#F2679B"
+  },
+  "typographie": {
+    "_note": "Suggestions proches du lettrage visible (script gras + capitales arrondies italiques).",
+    "titres": "Pacifico",
+    "accroches": "Lilita One",
+    "texte": "Poppins"
+  },
+  "identiteVisuelle": {
+    "logo": {
+      "fr": "Lettrage script gras blanc sur rouge, avec une goutte de sauce sous le dernier « o », accompagné de « La Meilleure Pizza ».",
+      "en": "Bold white script lettering on red with a sauce-drip tail under the final “o”, paired with “La Meilleure Pizza”."
+    },
+    "mascottes": [
+      {
+        "fr": "Chef pizzaiolo moustachu en toque (fresques murales)",
+        "en": "Moustached pizza chef in a toque (wall murals)"
+      },
+      {
+        "fr": "Cornet de glace souriant (enseigne Glacier)",
+        "en": "Smiling ice-cream cone character (Glacier sign)"
+      }
+    ],
+    "motifs": [
+      {
+        "fr": "Façades rouge vif à enseigne lumineuse 3D",
+        "en": "Bright red façades with 3D lit signs"
+      },
+      {
+        "fr": "Murs ardoise noirs illustrés (Lunch Time, Best Pizza…)",
+        "en": "Black chalkboard walls with illustrations (Lunch Time, Best Pizza…)"
+      },
+      {
+        "fr": "Bois clair, banquettes rouges/vert sapin, suspensions en verre",
+        "en": "Light wood, red/forest-green booths, glass pendant lights"
+      }
+    ]
+  }
+}

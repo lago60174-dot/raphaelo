@@ -1,0 +1,487 @@
+{
+  "version": 1,
+  "count": 7,
+  "agences": [
+    {
+      "id": "mimboman-shakespeare",
+      "slug": "mimboman-shakespeare",
+      "ordre": 1,
+      "nom": "Raphaëlo Mimboman – Shakespeare",
+      "quartier": "Mimboman",
+      "repere": "Shakespeare",
+      "aliases": [],
+      "ville": "Yaoundé",
+      "pays": "Cameroun",
+      "adresse": null,
+      "telephone": null,
+      "whatsapp": null,
+      "horaires": null,
+      "coordonnees": null,
+      "mapsQuery": "Raphaëlo Pizza Mimboman Shakespeare Yaoundé",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rapha%C3%ABlo+Pizza+Mimboman+Shakespeare+Yaound%C3%A9",
+      "offreEnseigne": ["pizza"],
+      "services": {
+        "surPlace": true,
+        "terrasse": true,
+        "emporter": true,
+        "livraison": null
+      },
+      "ambiance": ["moderne", "lumineuse", "familiale"],
+      "description": {
+        "fr": "L'agence de Mimboman, côté Shakespeare, mise sur une grande salle moderne : banquettes rouges et beiges, baies vitrées, plafond en bois chaleureux et une fresque géante de pizza au mur. Un cadre lumineux pour un déjeuner « Lunch Time » ou un dîner en famille, avec une terrasse devant la façade rouge.",
+        "en": "The Mimboman branch, on the Shakespeare side, offers a large modern dining room: red and beige booths, glass walls, a warm wooden ceiling and a giant pizza mural. A bright spot for a “Lunch Time” bite or a family dinner, with a terrace in front of the red façade."
+      },
+      "pointsForts": [
+        {
+          "fr": "Grande salle avec fresque pizza",
+          "en": "Large dining room with pizza mural"
+        },
+        {
+          "fr": "Baies vitrées et plafond bois",
+          "en": "Glass walls and wooden ceiling"
+        },
+        {
+          "fr": "Terrasse en façade",
+          "en": "Front terrace"
+        }
+      ],
+      "images": {
+        "cover": "mimboman-01-facade-terrasse",
+        "galerie": [
+          "mimboman-01-facade-terrasse",
+          "mimboman-02-salle-fresque-pizza",
+          "mimboman-03-salle-clients"
+        ]
+      },
+      "seo": {
+        "title": {
+          "fr": "Raphaëlo Mimboman – Pizza, glaces & grill à Yaoundé",
+          "en": "Raphaëlo Mimboman – Pizza, ice cream & grill in Yaoundé"
+        },
+        "description": {
+          "fr": "Découvrez l'agence Raphaëlo de Mimboman (Shakespeare) à Yaoundé : pizzas, glaces et grill dans un cadre convivial.",
+          "en": "Discover the Raphaëlo branch in Mimboman (Shakespeare), Yaoundé: pizza, ice cream and grill in a friendly setting."
+        }
+      },
+      "statut": "a_completer",
+      "aCompleter": [
+        "adresse",
+        "telephone",
+        "whatsapp",
+        "horaires",
+        "coordonnees"
+      ]
+    },
+    {
+      "id": "odza-borne-10",
+      "slug": "odza-borne-10",
+      "ordre": 2,
+      "nom": "Raphaëlo Odza – Borne 10",
+      "quartier": "Odza",
+      "repere": "Borne 10 – Entrée Koweït",
+      "aliases": [],
+      "ville": "Yaoundé",
+      "pays": "Cameroun",
+      "adresse": null,
+      "telephone": null,
+      "whatsapp": null,
+      "horaires": null,
+      "coordonnees": null,
+      "mapsQuery": "Raphaëlo Pizza Odza Borne 10 Entrée Koweït Yaoundé",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rapha%C3%ABlo+Pizza+Odza+Borne+10+Entr%C3%A9e+Kowe%C3%AFt+Yaound%C3%A9",
+      "offreEnseigne": ["glacier", "pizza"],
+      "services": {
+        "surPlace": true,
+        "terrasse": true,
+        "emporter": true,
+        "livraison": null
+      },
+      "ambiance": ["urbaine", "photogénique", "terrasse"],
+      "description": {
+        "fr": "À Odza, la borne 10 (entrée Koweït) mène à un bâtiment à étage facile à repérer : structure noire, façade rouge, escalier colimaçon et terrasse en hauteur. La mascotte du chef peinte à l'entrée annonce la couleur : pizzas et glaces à savourer sur place.",
+        "en": "In Odza, Borne 10 (Koweït entrance) leads to an easy-to-spot two-storey building: black frame, red façade, spiral staircase and an upper terrace. The chef mascot painted at the entrance sets the tone: pizza and ice cream to enjoy on site."
+      },
+      "pointsForts": [
+        {
+          "fr": "Bâtiment à étage et escalier colimaçon",
+          "en": "Two-storey building with spiral staircase"
+        },
+        {
+          "fr": "Terrasse au rez-de-chaussée et à l'étage",
+          "en": "Ground-floor and upper terraces"
+        },
+        {
+          "fr": "Repère d'accès : entrée Koweït",
+          "en": "Access landmark: Koweït entrance"
+        }
+      ],
+      "images": {
+        "cover": "odza-01-facade-escalier-colimacon",
+        "galerie": [
+          "odza-01-facade-escalier-colimacon",
+          "odza-02-capture-tiktok-entree-koweit"
+        ]
+      },
+      "seo": {
+        "title": {
+          "fr": "Raphaëlo Odza – Pizza, glaces & grill à Yaoundé",
+          "en": "Raphaëlo Odza – Pizza, ice cream & grill in Yaoundé"
+        },
+        "description": {
+          "fr": "Découvrez l'agence Raphaëlo de Odza (Borne 10 – Entrée Koweït) à Yaoundé : pizzas, glaces et grill dans un cadre convivial.",
+          "en": "Discover the Raphaëlo branch in Odza (Borne 10 – Entrée Koweït), Yaoundé: pizza, ice cream and grill in a friendly setting."
+        }
+      },
+      "statut": "a_completer",
+      "aCompleter": [
+        "adresse",
+        "telephone",
+        "whatsapp",
+        "horaires",
+        "coordonnees"
+      ]
+    },
+    {
+      "id": "awae-escalier",
+      "slug": "awae-escalier",
+      "ordre": 3,
+      "nom": "Raphaëlo Awae – Escalier",
+      "quartier": "Awae",
+      "repere": "Carrefour Awae Escalier",
+      "aliases": [],
+      "ville": "Yaoundé",
+      "pays": "Cameroun",
+      "adresse": null,
+      "telephone": null,
+      "whatsapp": null,
+      "horaires": null,
+      "coordonnees": null,
+      "mapsQuery": "Raphaëlo Pizza Carrefour Awae Escalier Yaoundé",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rapha%C3%ABlo+Pizza+Carrefour+Awae+Escalier+Yaound%C3%A9",
+      "offreEnseigne": ["pizza", "glacier"],
+      "services": {
+        "surPlace": true,
+        "terrasse": true,
+        "emporter": true,
+        "livraison": null
+      },
+      "ambiance": ["conviviale", "quartier", "décontractée"],
+      "description": {
+        "fr": "Reconnaissable à sa devanture rouge « Pizza – Raphaëlo – Glacier », l'agence d'Awae Escalier accueille avec des bancs en bois, des jardinières et une équipe en polos rouges toujours souriante. Le point de rendez-vous du quartier pour une pizza ou une glace.",
+        "en": "Recognisable by its red “Pizza – Raphaëlo – Glacier” front, the Awae Escalier branch welcomes you with wooden benches, planters and a smiling team in red polos. The neighbourhood meeting point for a pizza or an ice cream."
+      },
+      "pointsForts": [
+        {
+          "fr": "Devanture Pizza & Glacier",
+          "en": "Pizza & Ice cream front"
+        },
+        {
+          "fr": "Bancs en bois et verdure en devanture",
+          "en": "Wooden benches and greenery out front"
+        },
+        {
+          "fr": "Équipe en polos rouges",
+          "en": "Team in red polos"
+        }
+      ],
+      "images": {
+        "cover": "awae-01-facade-pizza-glacier",
+        "galerie": [
+          "awae-01-facade-pizza-glacier",
+          "awae-02-equipe-polos-rouges"
+        ]
+      },
+      "seo": {
+        "title": {
+          "fr": "Raphaëlo Awae – Pizza, glaces & grill à Yaoundé",
+          "en": "Raphaëlo Awae – Pizza, ice cream & grill in Yaoundé"
+        },
+        "description": {
+          "fr": "Découvrez l'agence Raphaëlo de Awae (Carrefour Awae Escalier) à Yaoundé : pizzas, glaces et grill dans un cadre convivial.",
+          "en": "Discover the Raphaëlo branch in Awae (Carrefour Awae Escalier), Yaoundé: pizza, ice cream and grill in a friendly setting."
+        }
+      },
+      "statut": "a_completer",
+      "aCompleter": [
+        "adresse",
+        "telephone",
+        "whatsapp",
+        "horaires",
+        "coordonnees"
+      ]
+    },
+    {
+      "id": "simbock",
+      "slug": "simbock",
+      "ordre": 4,
+      "nom": "Raphaëlo Simbock",
+      "quartier": "Simbock",
+      "repere": "Entrée Simbock",
+      "aliases": [],
+      "ville": "Yaoundé",
+      "pays": "Cameroun",
+      "adresse": null,
+      "telephone": null,
+      "whatsapp": null,
+      "horaires": null,
+      "coordonnees": null,
+      "mapsQuery": "Raphaëlo Pizza Simbock Yaoundé",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rapha%C3%ABlo+Pizza+Simbock+Yaound%C3%A9",
+      "offreEnseigne": ["pizza", "glacier", "grill"],
+      "services": {
+        "surPlace": true,
+        "terrasse": null,
+        "emporter": true,
+        "livraison": null
+      },
+      "ambiance": ["visible", "complète", "accueillante"],
+      "description": {
+        "fr": "À Simbock, un totem lumineux annonce Pizza, Glacier et Grill : la gamme complète Raphaëlo. L'entrée, avec son auvent blanc au lettrage rouge, son rideau décoratif de tiges rouges et ses jardinières, se repère de loin depuis la rue.",
+        "en": "In Simbock, a lit totem announces Pizza, Ice cream and Grill: the full Raphaëlo range. The entrance, with its white canopy in red lettering, decorative red-rod curtain and planters, is easy to spot from the street."
+      },
+      "pointsForts": [
+        {
+          "fr": "Totem Pizza · Glacier · Grill",
+          "en": "Pizza · Ice cream · Grill totem"
+        },
+        {
+          "fr": "Entrée végétalisée",
+          "en": "Planted entrance"
+        },
+        {
+          "fr": "Gamme complète à l'enseigne",
+          "en": "Full range on the sign"
+        }
+      ],
+      "images": {
+        "cover": "simbock-02-entree-facade",
+        "galerie": [
+          "simbock-01-totem-pizza-glacier-grill",
+          "simbock-02-entree-facade"
+        ]
+      },
+      "seo": {
+        "title": {
+          "fr": "Raphaëlo Simbock – Pizza, glaces & grill à Yaoundé",
+          "en": "Raphaëlo Simbock – Pizza, ice cream & grill in Yaoundé"
+        },
+        "description": {
+          "fr": "Découvrez l'agence Raphaëlo de Simbock (Entrée Simbock) à Yaoundé : pizzas, glaces et grill dans un cadre convivial.",
+          "en": "Discover the Raphaëlo branch in Simbock (Entrée Simbock), Yaoundé: pizza, ice cream and grill in a friendly setting."
+        }
+      },
+      "statut": "a_completer",
+      "aCompleter": [
+        "adresse",
+        "telephone",
+        "whatsapp",
+        "horaires",
+        "coordonnees"
+      ]
+    },
+    {
+      "id": "ngousso",
+      "slug": "ngousso",
+      "ordre": 5,
+      "nom": "Raphaëlo Chapelle Ngousso",
+      "quartier": "Ngousso",
+      "repere": "Chapelle Ngousso",
+      "aliases": [],
+      "ville": "Yaoundé",
+      "pays": "Cameroun",
+      "adresse": null,
+      "telephone": null,
+      "whatsapp": null,
+      "horaires": null,
+      "coordonnees": null,
+      "mapsQuery": "Raphaëlo Pizza Chapelle Ngousso Yaoundé",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rapha%C3%ABlo+Pizza+Chapelle+Ngousso+Yaound%C3%A9",
+      "offreEnseigne": ["glacier", "pizza"],
+      "services": {
+        "surPlace": true,
+        "terrasse": true,
+        "emporter": true,
+        "livraison": null
+      },
+      "ambiance": ["paisible", "verdoyante", "terrasse"],
+      "description": {
+        "fr": "À la Chapelle Ngousso, Raphaëlo déploie une terrasse couverte sous sa façade rouge, avec suspensions chaleureuses et haies luxuriantes dans des jardinières en pierre. Une adresse paisible pour déguster pizza et glaces.",
+        "en": "At Chapelle Ngousso, Raphaëlo offers a covered terrace under its red façade, with warm pendant lights and lush hedges in stone planters. A calm spot to enjoy pizza and ice cream."
+      },
+      "pointsForts": [
+        {
+          "fr": "Terrasse couverte",
+          "en": "Covered terrace"
+        },
+        {
+          "fr": "Suspensions et verdure",
+          "en": "Pendant lights and greenery"
+        },
+        {
+          "fr": "Enseigne Glacier & Pizza",
+          "en": "Ice cream & Pizza sign"
+        }
+      ],
+      "images": {
+        "cover": "ngousso-01-facade-terrasse-couverte",
+        "galerie": [
+          "ngousso-01-facade-terrasse-couverte",
+          "ngousso-02-visuel-ouverture"
+        ]
+      },
+      "seo": {
+        "title": {
+          "fr": "Raphaëlo Ngousso – Pizza, glaces & grill à Yaoundé",
+          "en": "Raphaëlo Ngousso – Pizza, ice cream & grill in Yaoundé"
+        },
+        "description": {
+          "fr": "Découvrez l'agence Raphaëlo de Ngousso (Chapelle Ngousso) à Yaoundé : pizzas, glaces et grill dans un cadre convivial.",
+          "en": "Discover the Raphaëlo branch in Ngousso (Chapelle Ngousso), Yaoundé: pizza, ice cream and grill in a friendly setting."
+        }
+      },
+      "statut": "a_completer",
+      "aCompleter": [
+        "adresse",
+        "telephone",
+        "whatsapp",
+        "horaires",
+        "coordonnees"
+      ]
+    },
+    {
+      "id": "kolbisson",
+      "slug": "kolbisson",
+      "ordre": 6,
+      "nom": "Raphaëlo Kolbisson",
+      "quartier": "Kolbisson",
+      "repere": "Carrefour Nkolbisson",
+      "aliases": ["Nkolbisson", "Carrefour Nkolbisson"],
+      "ville": "Yaoundé",
+      "pays": "Cameroun",
+      "adresse": null,
+      "telephone": null,
+      "whatsapp": null,
+      "horaires": null,
+      "coordonnees": null,
+      "mapsQuery": "Raphaëlo Pizza Carrefour Nkolbisson Yaoundé",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rapha%C3%ABlo+Pizza+Carrefour+Nkolbisson+Yaound%C3%A9",
+      "offreEnseigne": ["pizza"],
+      "services": {
+        "surPlace": true,
+        "terrasse": true,
+        "emporter": true,
+        "livraison": null
+      },
+      "ambiance": ["décontractée", "colorée", "lounge"],
+      "description": {
+        "fr": "À Kolbisson, une devanture rouge et blanche à l'enseigne Pizza ouvre sur une terrasse de tables orange souvent pleine, et sur un coin lounge au mur noir orné du logo, avec tabourets hauts et grande table en bois.",
+        "en": "In Kolbisson, a red-and-white front with a Pizza sign opens onto an orange-table terrace and a lounge corner with a black logo wall, high stools and a big wooden table."
+      },
+      "pointsForts": [
+        {
+          "fr": "Terrasse aux tables orange",
+          "en": "Orange-table terrace"
+        },
+        {
+          "fr": "Coin lounge au mur noir",
+          "en": "Black-wall lounge corner"
+        },
+        {
+          "fr": "Ambiance décontractée",
+          "en": "Relaxed atmosphere"
+        }
+      ],
+      "images": {
+        "cover": "kolbisson-01-devanture-terrasse",
+        "galerie": [
+          "kolbisson-01-devanture-terrasse",
+          "kolbisson-02-terrasse-mur-logo"
+        ]
+      },
+      "seo": {
+        "title": {
+          "fr": "Raphaëlo Kolbisson – Pizza, glaces & grill à Yaoundé",
+          "en": "Raphaëlo Kolbisson – Pizza, ice cream & grill in Yaoundé"
+        },
+        "description": {
+          "fr": "Découvrez l'agence Raphaëlo de Kolbisson (Carrefour Nkolbisson) à Yaoundé : pizzas, glaces et grill dans un cadre convivial.",
+          "en": "Discover the Raphaëlo branch in Kolbisson (Carrefour Nkolbisson), Yaoundé: pizza, ice cream and grill in a friendly setting."
+        }
+      },
+      "statut": "a_completer",
+      "aCompleter": [
+        "adresse",
+        "telephone",
+        "whatsapp",
+        "horaires",
+        "coordonnees"
+      ]
+    },
+    {
+      "id": "carrefour-tam-tam",
+      "slug": "carrefour-tam-tam",
+      "ordre": 7,
+      "nom": "Raphaëlo Carrefour Tam-Tam",
+      "quartier": "Carrefour Tam-Tam",
+      "repere": "Carrefour Tam-Tam",
+      "aliases": [],
+      "ville": "Yaoundé",
+      "pays": "Cameroun",
+      "adresse": null,
+      "telephone": null,
+      "whatsapp": null,
+      "horaires": null,
+      "coordonnees": null,
+      "mapsQuery": "Raphaëlo Pizza Carrefour Tam-Tam Yaoundé",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rapha%C3%ABlo+Pizza+Carrefour+Tam-Tam+Yaound%C3%A9",
+      "offreEnseigne": ["pizza"],
+      "services": {
+        "surPlace": true,
+        "terrasse": null,
+        "emporter": true,
+        "livraison": null
+      },
+      "ambiance": ["design", "chic", "lumineuse"],
+      "description": {
+        "fr": "L'agence du Carrefour Tam-Tam séduit par son décor soigné : banquettes vert sapin, fresque d'un chef et d'une pizza géante sur mur noir, plafond à lignes lumineuses et suspensions en verre. Un cadre design pour une pause gourmande.",
+        "en": "The Carrefour Tam-Tam branch stands out with its polished decor: forest-green booths, a mural of a chef and a giant pizza on a black wall, a ceiling with light lines and glass pendants. A stylish setting for a tasty break."
+      },
+      "pointsForts": [
+        {
+          "fr": "Fresque du chef et pizza géante",
+          "en": "Chef and giant pizza mural"
+        },
+        {
+          "fr": "Plafond à lignes lumineuses",
+          "en": "Light-line ceiling"
+        },
+        {
+          "fr": "Banquettes vert sapin",
+          "en": "Forest-green booths"
+        }
+      ],
+      "images": {
+        "cover": "tam-tam-01-salle-fresque-chef",
+        "galerie": ["tam-tam-01-salle-fresque-chef"]
+      },
+      "seo": {
+        "title": {
+          "fr": "Raphaëlo Carrefour Tam-Tam – Pizza, glaces & grill à Yaoundé",
+          "en": "Raphaëlo Carrefour Tam-Tam – Pizza, ice cream & grill in Yaoundé"
+        },
+        "description": {
+          "fr": "Découvrez l'agence Raphaëlo de Carrefour Tam-Tam (Carrefour Tam-Tam) à Yaoundé : pizzas, glaces et grill dans un cadre convivial.",
+          "en": "Discover the Raphaëlo branch in Carrefour Tam-Tam (Carrefour Tam-Tam), Yaoundé: pizza, ice cream and grill in a friendly setting."
+        }
+      },
+      "statut": "a_completer",
+      "aCompleter": [
+        "adresse",
+        "telephone",
+        "whatsapp",
+        "horaires",
+        "coordonnees"
+      ]
+    }
+  ]
+}

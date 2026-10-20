@@ -1,0 +1,39 @@
+---
+import MenuItemCard from '../components/MenuItemCard.astro';
+import { featuredItems } from '../lib/menu';
+import { content } from '../lib/content';
+import { t } from '../lib/i18n';
+---
+
+<section class="container">
+  <h2>{t(content.sections.menu.titre)}</h2>
+  <p class="intro">{t(content.sections.menu.intro)}</p>
+  <ul>
+    {featuredItems().map((item) => (
+      <MenuItemCard item={item} />
+    ))}
+  </ul>
+  <a class="btn btn--outline" href="/menu">
+    {t(content.cta.voirCarte)}
+  </a>
+</section>
+
+<style>
+  section {
+    padding-top: 3rem;
+  }
+  h2 {
+    margin: 0 0 0.5rem;
+    font-size: 2rem;
+  }
+  .intro {
+    margin: 0 0 1.5rem;
+  }
+  ul {
+    display: grid;
+    gap: 1rem;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  }
+</style>

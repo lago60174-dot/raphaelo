@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AgenceCard from '../components/AgenceCard.astro';
+import { getAgences } from '../lib/agences';
+import { content } from '../lib/content';
+import { t } from '../lib/i18n';
+---
+
+<BaseLayout
+  title={`${t(content.sections.agences.titre)} | Raphaëlo`}
+  description={t(content.sections.agences.intro)}
+>
+  <div class="container page">
+    <h1>{t(content.sections.agences.titre)}</h1>
+    <p class="intro">{t(content.sections.agences.intro)}</p>
+    <section class="map-panel" aria-labelledby="map-title">
+      <div class="map-copy">
+        <p class="eyebrow">NOS POINTS DE VENTE</p>
+        <h2 id="map-title">Raphaëlo autour de Yaoundé</h2>
+        <p>
+          Explorez les résultats cartographiques de l’enseigne. Les fiches
+          ci-dessous vous permettent aussi d’ouvrir un itinéraire par quartier.
+        </p>
+        <a
+          class="btn btn--outline"
+          href="https://www.google.com/maps/search/?api=1&query=Raphaelo+Pizza+Yaounde"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ouvrir la carte complète ↗
+        </a>
+      </div>
+      <iframe
+        title="Carte de recherche des agences Raphaëlo Pizza à Yaoundé"
+        src="https://maps.google.com/maps?q=Raphaelo%20Pizza%20Yaounde&t=&z=11&ie=UTF8&iwloc=&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+      <p class="map-note">
+        Les emplacements sont fournis par le service cartographique et peuvent
+        être incomplets. Vérifiez l’itinéraire avant le déplacement.
+      </p>
+    </section>
+    <ul>
+      {getAgences().map((a) => (
+        <AgenceCard agence={a} />
+      ))}
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding-top: 2rem;
+  }
+  h1 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(2rem, 7vw, 3rem);
+    color: var(--color-primary-dark);
+  }
+  .intro {
+    margin: 0 0 1.5rem;
+    max-width: 40rem;
+  }
+  .map-panel {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 1.25rem;
+    align-items: stretch;
+    margin: 1.75rem 0 2rem;
+    padding: 1rem;
+    border: 1px solid rgb(40 20 20 / 10%);
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0 14px 38px rgb(40 20 20 / 6%);
+  }
+  .map-copy {
+    padding: 1rem;
+    align-self: center;
+  }
+  .eyebrow {
+    color: var(--color-primary-dark);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    font-weight: 900;
+    margin: 0 0 0.5rem;
+  }
+  .map-copy h2 {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.1;
+    margin: 0 0 0.75rem;
+  }
+  .map-copy p:not(.eyebrow) {
+    color: var(--color-text-muted);
+  }
+  iframe {
+    display: block;
+    width: 100%;
+    min-height: 330px;
+    border: 0;
+    border-radius: 17px;
+    background: #f3efeb;
+  }
+  .map-note {
+    grid-column: 1/-1;
+    margin: 0 0.75rem 0.4rem;
+    color: var(--color-text-muted);
+    font-size: 0.82rem;
+  }
+  ul {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  }
+  @media (max-width: 760px) {
+    .map-panel {
+      grid-template-columns: 1fr;
+    }
+    iframe {
+      min-height: 280px;
+    }
+    .map-note {
+      grid-column: auto;
+    }
+  }
+</style>

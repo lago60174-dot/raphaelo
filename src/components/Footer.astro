@@ -1,0 +1,230 @@
+---
+import { Image } from 'astro:assets';
+import NavLinks from './NavLinks.astro';
+import { legalNav } from '../lib/nav';
+import { getSite } from '../lib/site';
+import { getMedia } from '../lib/media';
+const site = await getSite();
+const logo = getMedia('logo');
+const canUseWhatsApp =
+  Boolean(site.whatsapp) && !site.toConfirm.includes('whatsapp');
+const links = [
+  { label: 'TikTok', href: site.tiktokUrl, confirmKey: null },
+  { label: 'Facebook', href: site.facebookUrl, confirmKey: 'facebookUrl' },
+].filter(
+  (l): l is { label: string; href: string; confirmKey: string | null } =>
+    l.href !== null &&
+    (!l.confirmKey || !site.toConfirm.includes(l.confirmKey)),
+);
+---
+
+<footer>
+  <div class="pattern" aria-hidden="true"></div>
+  <div class="inner">
+    <div class="brand-block">
+      <a class="brand" href="/" aria-label="Raphaëlo Pizza, accueil">
+        <Image src={logo.src} alt="Raphaëlo Pizza" width={126} loading="lazy" />
+      </a>
+      <p class="name">{site.name}</p>
+      <p class="tagline">{site.slogan ?? 'La Meilleure Pizza'}</p>
+      <p class="summary">
+        Des moments gourmands autour de pizzas, de glaces et de grill, dans nos
+        agences à Yaoundé.
+      </p>
+    </div>
+    <div class="nav-block">
+      <h2>Explorer</h2>
+      <nav aria-label="Navigation de pied de page">
+        <NavLinks />
+      </nav>
+    </div>
+    <div class="contact-block">
+      <h2>Restons en contact</h2>
+      <p>
+        Une envie de pizza ? Contactez-nous pour vos commandes et
+        renseignements.
+      </p>
+      {canUseWhatsApp ? (
+        <a
+          class="footer-cta"
+          href={`https://wa.me/${site.whatsapp.replace(/\D/g, '')}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Commander sur WhatsApp <span aria-hidden="true">→</span>
+        </a>
+      ) : (
+        <a class="footer-cta" href="/adresses">
+          Trouver une agence <span aria-hidden="true">→</span>
+        </a>
+      )}
+      {links.length > 0 && (
+        <ul class="social">
+          {links.map((l) => (
+            <li>
+              <a href={l.href} rel="noopener noreferrer" target="_blank">
+                {l.label} <span aria-hidden="true">↗</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+    <div class="bottom">
+      <p>
+        © {new Date().getFullYear()} {site.name}. Tous droits réservés.
+      </p>
+      <ul class="legal">
+        {legalNav.map((l) => (
+          <li>
+            <a href={l.href}>{l.label}</a>
+          </li>
+        ))}
+      </ul>
+      <p class="demo">
+        Maquette de démonstration — informations à valider par l’entreprise.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    margin-top: clamp(3rem, 7vw, 6rem);
+    background: #211d1d;
+    color: #fff;
+    overflow: hidden;
+  }
+  .pattern {
+    height: 9px;
+    background: repeating-linear-gradient(
+      135deg,
+      var(--color-primary) 0 10px,
+      #211d1d 10px 20px
+    );
+  }
+  .inner {
+    width: min(100% - 2rem, 76rem);
+    margin: 0 auto;
+    padding: clamp(2rem, 5vw, 4rem) 0 1.25rem;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1.1fr;
+    gap: 2.5rem;
+  }
+  .brand {
+    display: inline-flex;
+    background: #fff;
+    padding: 0.35rem 0.65rem;
+    border-radius: 12px;
+  }
+  .brand img {
+    display: block;
+    width: 126px;
+    height: auto;
+  }
+  .name {
+    margin: 1rem 0 0;
+    font: 600 1.5rem var(--font-display);
+  }
+  .tagline {
+    margin: 0.15rem 0 0.6rem;
+    color: #ffb9b9;
+    font-weight: 800;
+  }
+  .summary,
+  .contact-block p {
+    color: #d4cece;
+    max-width: 24rem;
+    margin: 0;
+  }
+  h2 {
+    font: 600 1.1rem var(--font-display);
+    margin: 0 0 1rem;
+  }
+  .nav-block nav :global(ul) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.15rem 0.6rem;
+  }
+  .nav-block nav :global(a) {
+    color: #fff;
+    padding-inline: 0;
+  }
+  .nav-block nav :global(a:hover) {
+    color: #fff;
+    background: rgb(255 255 255 / 10%);
+  }
+  .footer-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 1rem 0;
+    padding: 0.85rem 1rem;
+    border-radius: 999px;
+    background: var(--color-primary);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 800;
+    box-shadow: 0 8px 22px rgb(0 0 0 / 20%);
+    transition:
+      transform 0.2s,
+      filter 0.2s;
+  }
+  .footer-cta:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.12);
+  }
+  .social,
+  .legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 0.9rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .social a,
+  .legal a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-height: 40px;
+    color: #fff;
+    text-decoration: none;
+  }
+  .social a:hover,
+  .legal a:hover {
+    color: #ffb9b9;
+  }
+  .bottom {
+    grid-column: 1/-1;
+    border-top: 1px solid rgb(255 255 255 / 16%);
+    padding-top: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    color: #d4cece;
+    font-size: 0.875rem;
+  }
+  .bottom p {
+    margin: 0;
+  }
+  .demo {
+    flex-basis: 100%;
+    color: #aaa1a1;
+    font-size: 0.8rem;
+  }
+  @media (max-width: 760px) {
+    .inner {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .bottom {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+</style>

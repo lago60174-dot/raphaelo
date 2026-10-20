@@ -1,0 +1,42 @@
+---
+import AgenceCard from '../components/AgenceCard.astro';
+import { getAgences } from '../lib/agences';
+import { content } from '../lib/content';
+import { t } from '../lib/i18n';
+
+interface Props {
+  intro?: boolean;
+}
+const { intro = true } = Astro.props;
+---
+
+<section class="container">
+  <h2>{t(content.sections.agences.titre)}</h2>
+  {intro && <p class="intro">{t(content.sections.agences.intro)}</p>}
+  <ul>
+    {getAgences().map((a) => (
+      <AgenceCard agence={a} />
+    ))}
+  </ul>
+</section>
+
+<style>
+  section {
+    padding-top: 3rem;
+  }
+  h2 {
+    margin: 0 0 0.5rem;
+    font-size: 2rem;
+  }
+  .intro {
+    margin: 0 0 1.5rem;
+    max-width: 40rem;
+  }
+  ul {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  }
+</style>

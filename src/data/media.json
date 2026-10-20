@@ -1,0 +1,18 @@
+[
+  {
+    "id": "logo",
+    "file": "logo.png",
+    "alt": "Raphaëlo, La Meilleure Pizza",
+    "origin": "Fourni par le demandeur (logo de l'entreprise, recadré sur son contenu)",
+    "rights": "À confirmer auprès du propriétaire",
+    "usedOn": ["en-tête"]
+  },
+  {
+    "id": "terrasse-douala",
+    "file": "terrasse-douala.png",
+    "alt": "Terrasse du point de vente Raphaëlo Pizza de Douala, Total-Nkolbong : enseigne rouge et tables noires",
+    "origin": "Fournie par le demandeur (image du point de vente de Douala, avec légende incrustée)",
+    "rights": "À confirmer auprès du propriétaire",
+    "usedOn": ["livraison"]
+  }
+]

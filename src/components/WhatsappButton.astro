@@ -1,0 +1,31 @@
+---
+import { getSite } from '../lib/site';
+import { whatsappUrl } from '../lib/whatsapp';
+
+interface Props {
+  label?: string;
+  message?: string;
+}
+
+const {
+  label = 'Commander',
+  message = 'Bonjour Raphaëlo Pizza, je voudrais commander.',
+} = Astro.props;
+const site = await getSite();
+const whatsappConfirmed =
+  Boolean(site.whatsapp) && !site.toConfirm.includes('whatsapp');
+const href = whatsappConfirmed
+  ? whatsappUrl(site.whatsapp, message)
+  : undefined;
+---
+
+{href && (
+  <a
+    class="btn btn--whatsapp"
+    href={href}
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    {label}
+  </a>
+)}

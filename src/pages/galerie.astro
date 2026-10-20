@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GalleryImage from '../components/GalleryImage.astro';
+import {
+  collectionIdsOf,
+  collectionImages,
+  publicImages,
+} from '../lib/gallery';
+import { content } from '../lib/content';
+import { t } from '../lib/i18n';
+
+const images = publicImages();
+// Un filtre sans image publiable (ex. Équipe quand les personnes sont masquées) n'est pas proposé.
+const filters = content.sections.galerie.filtres.filter(
+  (f) => f.id === 'tous' || collectionImages(f.id).length > 0,
+);
+---
+
+<BaseLayout
+  title={`${t(content.sections.galerie.titre)} | Raphaëlo`}
+  description={t(content.sections.univers.texte)}
+>
+  <div class="container page">
+    <h1>{t(content.sections.galerie.titre)}</h1>
+    <nav class="filters" aria-label="Filtrer la galerie" data-filters hidden>
+      {filters.map((f) => (
+        <button
+          type="button"
+          class="btn btn--outline"
+          data-filter={f.id}
+          aria-pressed={f.id === 'tous'}
+        >
+          {t(f.label)}
+        </button>
+      ))}
+    </nav>
+    <ul class="grid">
+      {images.map((i) => (
+        <li data-collections={collectionIdsOf(i.id).join(' ')}>
+          <GalleryImage id={i.id} caption />
+        </li>
+      ))}
+    </ul>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding-top: 2rem;
+  }
+  h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(2rem, 7vw, 3rem);
+    color: var(--color-primary-dark);
+  }
+  .filters:not([hidden]) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0 0 1.5rem;
+  }
+  .filters button {
+    cursor: pointer;
+    background: transparent;
+  }
+  .filters button[aria-pressed='true'] {
+    background: var(--color-primary);
+    color: #fff;
+  }
+  .grid {
+    display: grid;
+    gap: 1rem;
+    align-items: start;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  }
+  .grid li[hidden] {
+    display: none;
+  }
+</style>
+
+<script>
+  // Sans JavaScript, toutes les images restent visibles et la barre de filtres reste masquée.
+  const nav = document.querySelector<HTMLElement>('[data-filters]');
+  if (nav) {
+    nav.hidden = false;
+    const items = document.querySelectorAll<HTMLElement>('[data-collections]');
+    nav.addEventListener('click', (event) => {
+      const button = (event.target as HTMLElement).closest<HTMLButtonElement>(
+        'button[data-filter]',
+      );
+      if (!button) return;
+      const filter = button.dataset.filter;
+      nav
+        .querySelectorAll('button')
+        .forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+      items.forEach((el) => {
+        const own = (el.dataset.collections ?? '').split(' ');
+        el.hidden = filter !== 'tous' && !own.includes(filter ?? '');
+      });
+    });
+  }
+</script>

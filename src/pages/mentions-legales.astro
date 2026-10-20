@@ -1,0 +1,35 @@
+---
+import TextPage from '../layouts/TextPage.astro';
+import { getSite } from '../lib/site';
+
+const site = await getSite();
+const rows = [
+  ['Raison sociale', site.legal.companyName],
+  ['RCCM', site.legal.rccm],
+  ['NIU', site.legal.niu],
+  ['Siège', site.legal.address],
+  ['Directeur de la publication', site.legal.publisher],
+  ['Hébergeur', site.legal.host],
+] as const;
+---
+
+<TextPage
+  heading="Mentions légales"
+  title="Mentions légales | Raphaëlo Pizza"
+  description="Mentions légales du site Raphaëlo Pizza."
+>
+  <p>Ce site est une démonstration. Il n'a pas été validé par l'entreprise.</p>
+  <h2>Éditeur et hébergement</h2>
+  <dl>
+    {rows.map(([label, value]) => (
+      <div>
+        <dt>{label}</dt>
+        <dd data-todo={value === null ? 'TODO_CONFIRMER' : undefined}>
+          {value ?? 'À confirmer'}
+        </dd>
+      </div>
+    ))}
+  </dl>
+  <h2>Propriété intellectuelle</h2>
+  <p>Le nom et le logo Raphaëlo Pizza restent la propriété de l'entreprise.</p>
+</TextPage>

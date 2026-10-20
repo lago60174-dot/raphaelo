@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsappButton from '../components/WhatsappButton.astro';
+import { getSite } from '../lib/site';
+
+const site = await getSite();
+const whatsappDigits = site.whatsapp.replace(/\D/g, '');
+---
+
+<BaseLayout
+  title="Réserver une table | Raphaëlo Pizza"
+  description="Préparez votre réservation chez Raphaëlo Pizza à Yaoundé. Envoyez votre demande à l’équipe sur WhatsApp pour confirmation."
+>
+  <div class="reservation-page">
+    <section class="reservation-hero">
+      <div class="container reservation-hero-grid">
+        <div>
+          <p class="eyebrow">UN MOMENT À PARTAGER</p>
+          <h1>Votre table vous attend <span>peut-être déjà.</span></h1>
+          <p class="intro">Indiquez vos préférences : votre demande sera préparée dans un message WhatsApp. La réservation est confirmée uniquement après réponse de l’équipe Raphaëlo.</p>
+          <div class="reservation-benefits"><span>✓ En quelques instants</span><span>✓ Choix de l’agence</span><span>✓ Confirmation par l’équipe</span></div>
+          <WhatsappButton label="Poser une question sur WhatsApp" message="Bonjour Raphaëlo Pizza, je souhaite obtenir des informations pour réserver une table." />
+        </div>
+        <img class="reservation-mascot" src="/images/mascotte-raphaelo.png" alt="Mascotte officielle de Raphaëlo Pizza, chef cuisinier" width="201" height="251" loading="eager" />
+      </div>
+    </section>
+
+    <section class="container form-section">
+      <div class="form-heading"><p class="eyebrow">DEMANDE DE RÉSERVATION</p><h2>Parlons de votre visite</h2><p>Les champs marqués d’un astérisque sont obligatoires.</p></div>
+      <form id="reservation-form" data-whatsapp={whatsappDigits}>
+        <div class="form-grid">
+          <label>Votre nom *<input name="name" autocomplete="name" required maxlength="100" placeholder="Ex. : Marie N. "/></label>
+          <label>Votre téléphone *<input name="phone" type="tel" autocomplete="tel" required maxlength="30" placeholder="Ex. : 6XX XX XX XX"/></label>
+          <label>Agence souhaitée *<select name="agency" required><option value="" selected disabled>Choisir une agence</option><option>Yaoundé — préciser le quartier dans les notes</option><option>Douala — secteur Total Nkolbong</option><option>Je souhaite être conseillé(e)</option></select></label>
+          <label>Date souhaitée *<input name="date" type="date" required/></label>
+          <label>Heure souhaitée *<input name="time" type="time" required/></label>
+          <label>Nombre de personnes *<select name="guests" required><option value="" selected disabled>Choisir</option><option>1 personne</option><option>2 personnes</option><option>3 personnes</option><option>4 personnes</option><option>5 personnes</option><option>6 personnes</option><option>7 personnes ou plus</option></select></label>
+          <label class="full-width">Motif de la visite<select name="occasion"><option value="Visite classique">Visite classique</option><option>Anniversaire</option><option>Repas en famille</option><option>Repas entre amis</option><option>Rendez-vous professionnel</option><option>Autre</option></select></label>
+          <label class="full-width">Précisions (facultatif)<textarea name="notes" rows="4" maxlength="800" placeholder="Ex. : préférence de placement, occasion spéciale, quartier de l’agence…"></textarea></label>
+        </div>
+        <p class="form-notice">Ce formulaire prépare une demande et ouvre WhatsApp. Il ne garantit pas la disponibilité de la table. Évitez d’indiquer des informations sensibles.</p>
+        <button class="btn btn--whatsapp submit-button" type="submit">Envoyer ma demande sur WhatsApp <span aria-hidden="true">↗</span></button>
+        <p id="reservation-status" class="form-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </div>
+  <script>
+    const form = document.querySelector('#reservation-form');
+    const status = document.querySelector('#reservation-status');
+    const dateInput = form?.querySelector('input[name="date"]');
+    if (dateInput) {
+      const today = new Date();
+      const localToday = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+      dateInput.min = localToday;
+    }
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!(form instanceof HTMLFormElement) || !form.reportValidity()) return;
+      const data = new FormData(form);
+      const lines = [
+        'Bonjour Raphaëlo Pizza, je souhaite faire une demande de réservation :',
+        '',
+        `Nom : ${data.get('name')}`,
+        `Téléphone : ${data.get('phone')}`,
+        `Agence souhaitée : ${data.get('agency')}`,
+        `Date : ${data.get('date')}`,
+        `Heure : ${data.get('time')}`,
+        `Nombre de personnes : ${data.get('guests')}`,
+        `Motif : ${data.get('occasion')}`,
+        `Précisions : ${data.get('notes') || 'Aucune'}`,
+        '',
+        'Merci de me confirmer la disponibilité.'
+      ];
+      const phone = form.dataset.whatsapp;
+      if (!phone) {
+        if (status) status.textContent = 'Le numéro WhatsApp n’est pas configuré. Veuillez contacter directement l’équipe.';
+        return;
+      }
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(lines.join('\n'))}`;
+      window.open(url, '_blank', 'noopener,noreferrer');
+      if (status) status.textContent = 'Votre message est prêt dans WhatsApp. Envoyez-le, puis attendez la confirmation de l’équipe.';
+    });
+  </script>
+</BaseLayout>
+
+<style>
+.reservation-hero { overflow:hidden; padding:clamp(2.5rem,6vw,5rem) 0; background:linear-gradient(115deg,#fff8f1,#f9e9df); border-bottom:1px solid rgb(199 20 21 / 10%); }
+.reservation-hero-grid { display:grid; grid-template-columns:1fr auto; gap:2rem; align-items:center; }
+.eyebrow { margin:0 0 .7rem; color:var(--color-primary); font:800 .78rem var(--font-display); letter-spacing:.16em; }
+h1 { max-width:15ch; margin:0 0 1rem; color:var(--color-text); font-size:clamp(2.5rem,6vw,4.5rem); line-height:1.02; letter-spacing:-.045em; }
+h1 span { color:var(--color-primary); }
+.intro { max-width:43rem; margin:0 0 1.2rem; font-size:1.08rem; color:var(--color-text-muted); }
+.reservation-benefits { display:flex; flex-wrap:wrap; gap:.6rem 1rem; margin:1.2rem 0 1.5rem; font-size:.9rem; font-weight:800; }
+.reservation-benefits span { color:var(--color-text); }
+.reservation-mascot { display:block; width:clamp(145px,20vw,230px); height:auto; object-fit:contain; filter:drop-shadow(0 15px 18px rgb(60 20 20 / 12%)); }
+.form-section { max-width:880px; padding-top:clamp(2.5rem,5vw,4rem); padding-bottom:clamp(3rem,6vw,5rem); }
+.form-heading { margin-bottom:1.5rem; }.form-heading h2 { margin:0 0 .45rem; font-size:clamp(1.8rem,4vw,2.6rem); letter-spacing:-.035em; }.form-heading p:last-child { margin:0; color:var(--color-text-muted); }
+#reservation-form { padding:clamp(1.1rem,4vw,2rem); border:1px solid rgb(60 30 20 / 10%); border-radius:1.35rem; background:#fff; box-shadow:0 16px 45px rgb(60 30 20 / 7%); }
+.form-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.1rem; }
+.form-grid label { display:grid; gap:.45rem; color:var(--color-text); font-size:.92rem; font-weight:800; }
+.form-grid input,.form-grid select,.form-grid textarea { width:100%; min-height:48px; padding:.75rem .85rem; border:1px solid #ded6d0; border-radius:.7rem; background:#fffdfa; color:var(--color-text); font:500 1rem var(--font-body); }
+.form-grid textarea { resize:vertical; }.form-grid input:focus,.form-grid select:focus,.form-grid textarea:focus { outline:3px solid rgb(199 20 21 / 15%); border-color:var(--color-primary); }
+.full-width { grid-column:1 / -1; }.form-notice { margin:1rem 0; color:var(--color-text-muted); font-size:.86rem; line-height:1.55; }.submit-button { border:0; cursor:pointer; min-height:52px; }.submit-button span { margin-left:.4rem; }.form-status { margin:.7rem 0 0; color:var(--color-primary-dark); font-size:.9rem; }
+@media(max-width:600px) { .reservation-hero-grid { grid-template-columns:1fr auto; gap:.5rem; }.reservation-mascot { width:clamp(95px,30vw,145px); align-self:end; }.form-grid { grid-template-columns:1fr; }.full-width { grid-column:auto; } }
+</style>

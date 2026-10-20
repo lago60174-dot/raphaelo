@@ -1,0 +1,64 @@
+---
+import { getSite } from '../lib/site';
+
+const site = await getSite();
+---
+
+<!-- Bandeau "tableau noir" : rappelle les murs à la craie de la salle de Mimboman. -->
+<section class="board">
+  <div class="container">
+    <h2>On livre chez toi</h2>
+    <svg viewBox="0 0 120 12" width="120" height="12" aria-hidden="true">
+      <path
+        d="M2 8 Q 20 0 40 7 T 80 6 T 118 5"
+        fill="none"
+        stroke="var(--color-accent)"
+        stroke-width="3"
+        stroke-linecap="round"
+      />
+    </svg>
+    <ul>
+      {site.deliveryZones.map((z) => (
+        <li>
+          {z.city} : {z.area}
+        </li>
+      ))}
+    </ul>
+    {site.deliveryHours && <p>{site.deliveryHours}.</p>}
+    <a class="btn btn--outline" href="/livraison">
+      Zones et frais
+    </a>
+  </div>
+</section>
+
+<style>
+  .board {
+    margin-top: 3rem;
+    padding: 2.5rem 0;
+    background: var(--color-text);
+    color: #fff;
+  }
+  h2 {
+    margin: 0 0 0.25rem;
+    font-size: 2rem;
+  }
+  p,
+  li {
+    margin: 0.25rem 0;
+    font-size: 1.125rem;
+  }
+  ul {
+    margin: 0.5rem 0;
+    padding: 0;
+    list-style: none;
+  }
+  .btn {
+    margin-top: 1rem;
+    border-color: #fff;
+    color: #fff;
+  }
+  .btn:hover {
+    background: #fff;
+    color: var(--color-text);
+  }
+</style>

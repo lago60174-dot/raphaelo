@@ -1,0 +1,56 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  heading: string;
+}
+const { title, description, heading } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="container page">
+    <h1>{heading}</h1>
+    <slot />
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding-top: 2rem;
+    max-width: 48rem;
+  }
+  h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(2rem, 7vw, 3rem);
+    color: var(--color-primary-dark);
+  }
+  .page :global(h2) {
+    margin: 2rem 0 0.5rem;
+    font-size: 1.5rem;
+  }
+  .page :global(p),
+  .page :global(ul) {
+    margin: 0 0 1rem;
+  }
+  .page :global(a:not(.btn)) {
+    color: var(--color-primary-dark);
+    font-weight: 700;
+  }
+  .page :global(dl div) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 2px dotted var(--color-text-muted);
+  }
+  .page :global(dt) {
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
+  .page :global(dd) {
+    margin: 0;
+  }
+</style>

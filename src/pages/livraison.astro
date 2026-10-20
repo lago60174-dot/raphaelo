@@ -1,0 +1,520 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsappButton from '../components/WhatsappButton.astro';
+import { getSite } from '../lib/site';
+import { formatFcfa, telUrl } from '../lib/format';
+
+const site = await getSite();
+const todo = (field: string) => site.toConfirm.includes(field);
+const callZone = site.deliveryZones.find((z) => z.phone !== null);
+---
+
+<BaseLayout
+  title="Livraison et commande | Raphaëlo Pizza"
+  description="Découvrez les zones de livraison Raphaëlo Pizza et commandez vos pizzas, glaces et grill sur WhatsApp."
+>
+  <div class="delivery-page">
+    <section class="delivery-hero">
+      <div class="container delivery-hero-grid">
+        <div class="delivery-copy">
+          <p class="eyebrow">VOS ENVIES, CHEZ VOUS</p>
+          <h1>
+            On prépare.
+            <br />
+            <em>On vous livre !</em>
+          </h1>
+          <p class="intro">
+            Vos pizzas, glaces et grill préférés, à partager à la maison ou au
+            bureau. Écrivez-nous pour préparer votre commande.
+          </p>
+          <div class="hero-actions">
+            <WhatsappButton
+              label="Commander sur WhatsApp"
+              message="Bonjour Raphaëlo Pizza, je souhaite commander en livraison. Mon quartier est : ____. Voici ma commande : ____ ."
+            />
+            <a class="btn btn--outline" href="/menu">
+              Découvrir le menu <span aria-hidden="true">→</span>
+            </a>
+          </div>
+          <p class="small-note">
+            Indiquez votre quartier et les articles souhaités afin que l’équipe
+            puisse vous confirmer la disponibilité.
+          </p>
+        </div>
+        <div class="delivery-image-wrap">
+          <img
+            src="/images/livreur-moto-raphaelo.webp"
+            alt="Livreur Raphaëlo Pizza sur son scooter rouge"
+            width="540"
+            height="450"
+            loading="eager"
+          />
+          <div class="delivery-sticker">
+            <span>Raphaëlo</span>
+            <strong>
+              Le bonheur
+              <br />à partager
+            </strong>
+            <b aria-hidden="true">♥</b>
+          </div>
+          <div class="delivery-pill">
+            <span aria-hidden="true">⌖</span> Livraison sur demande
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container delivery-details">
+      <div class="section-heading">
+        <p class="eyebrow">COMMENT ÇA MARCHE ?</p>
+        <h2>Quelques étapes, et c’est parti.</h2>
+        <p>
+          Un parcours simple pour préparer votre commande sans mauvaise
+          surprise.
+        </p>
+      </div>
+      <div class="steps-grid">
+        <article class="step-card">
+          <span class="step-number">01</span>
+          <div class="step-icon" aria-hidden="true">
+            ☷
+          </div>
+          <h3>Choisissez</h3>
+          <p>Parcourez notre menu et choisissez vos pizzas, glaces ou grill.</p>
+          <a class="text-action" href="/menu">
+            Voir le menu <span aria-hidden="true">→</span>
+          </a>
+        </article>
+        <article class="step-card">
+          <span class="step-number">02</span>
+          <div class="step-icon" aria-hidden="true">
+            ◉
+          </div>
+          <h3>Écrivez-nous</h3>
+          <p>
+            Envoyez votre commande sur WhatsApp en précisant votre quartier.
+          </p>
+          <span class="step-hint">
+            Pensez à indiquer votre numéro de contact.
+          </span>
+        </article>
+        <article class="step-card">
+          <span class="step-number">03</span>
+          <div class="step-icon" aria-hidden="true">
+            ⌖
+          </div>
+          <h3>Confirmez</h3>
+          <p>
+            L’équipe vous confirme la disponibilité, le délai et les frais
+            applicables.
+          </p>
+          <span class="step-hint">
+            Les frais et délais sont à confirmer selon la zone.
+          </span>
+        </article>
+      </div>
+    </section>
+
+    <section class="container zones-section">
+      <div class="section-heading compact">
+        <p class="eyebrow">OÙ LIVRONS-NOUS ?</p>
+        <h2>Les zones desservies</h2>
+        <p>
+          Contactez-nous pour vérifier la couverture exacte de votre quartier.
+        </p>
+      </div>
+      <div class="zone-grid">
+        {site.deliveryZones.map((z) => (
+          <article class="zone-card">
+            <div class="zone-icon" aria-hidden="true">
+              ⌖
+            </div>
+            <div class="zone-body">
+              <h3>{z.city}</h3>
+              <p>{z.area}</p>
+              <span class="zone-status">
+                Couverture à confirmer selon le quartier
+              </span>
+            </div>
+            {z.phone && (
+              <a
+                class="zone-phone"
+                href={telUrl(z.phone)}
+                aria-label={`Appeler pour la livraison à ${z.city}`}
+              >
+                Appeler <span aria-hidden="true">↗</span>
+              </a>
+            )}
+          </article>
+        ))}
+      </div>
+      <div class="info-strip">
+        <div>
+          <span class="info-symbol" aria-hidden="true">
+            ◷
+          </span>
+          <div>
+            <strong>Horaires</strong>
+            <p>{site.deliveryHours ?? 'À confirmer auprès de l’équipe.'}</p>
+          </div>
+        </div>
+        <div>
+          <span class="info-symbol" aria-hidden="true">
+            ₣
+          </span>
+          <div>
+            <strong>Frais de livraison</strong>
+            <p>
+              {site.deliveryFeeFcfa === null || todo('deliveryFeeFcfa')
+                ? 'À confirmer selon la zone.'
+                : formatFcfa(site.deliveryFeeFcfa)}
+            </p>
+          </div>
+        </div>
+        <div>
+          <span class="info-symbol" aria-hidden="true">
+            ⌛
+          </span>
+          <div>
+            <strong>Délai estimé</strong>
+            <p>
+              {site.deliveryDelay === null || todo('deliveryDelay')
+                ? 'À confirmer au moment de la commande.'
+                : site.deliveryDelay}
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container delivery-final-cta">
+      <div>
+        <p class="eyebrow">UNE PETITE FAIM ?</p>
+        <h2>Votre prochaine pizza n’est qu’un message.</h2>
+        <p>Envoyez votre commande et votre quartier à notre équipe.</p>
+      </div>
+      <WhatsappButton
+        label="Commander sur WhatsApp"
+        message="Bonjour Raphaëlo Pizza, je souhaite commander en livraison. Mon quartier est : ____. Ma commande : ____ ."
+      />
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .delivery-page {
+    --cream: #fff7ef;
+  }
+  .delivery-hero {
+    padding: clamp(2.5rem, 6vw, 5rem) 0;
+    background: linear-gradient(115deg, #fff8f1, #f9e9df);
+    border-bottom: 1px solid rgb(199 20 21 / 10%);
+  }
+  .delivery-hero-grid {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+  .eyebrow {
+    margin: 0 0 0.7rem;
+    color: var(--color-primary);
+    font: 800 0.78rem var(--font-display);
+    letter-spacing: 0.16em;
+  }
+  h1 {
+    margin: 0 0 1rem;
+    color: var(--color-text);
+    font-size: clamp(2.6rem, 6vw, 4.7rem);
+    line-height: 1;
+    letter-spacing: -0.045em;
+  }
+  h1 em {
+    color: var(--color-primary);
+    font-style: normal;
+  }
+  .intro {
+    max-width: 37rem;
+    margin: 0 0 1.5rem;
+    font-size: 1.15rem;
+  }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+  }
+  .hero-actions :global(.btn) {
+    min-height: 52px;
+  }
+  .small-note {
+    margin: 0.8rem 0 0;
+    max-width: 36rem;
+    color: var(--color-text-muted);
+    font-size: 0.88rem;
+  }
+  .delivery-image-wrap {
+    position: relative;
+    padding: 0 0.6rem 1rem 0;
+  }
+  .delivery-image-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 1rem 0 0 1rem;
+    background: var(--color-primary);
+    opacity: 0.14;
+    border-radius: 1.5rem;
+    transform: rotate(2deg);
+  }
+  .delivery-image-wrap > img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: clamp(280px, 35vw, 440px);
+    object-fit: contain;
+    object-position: center;
+    border-radius: 1.4rem;
+    box-shadow: 0 20px 50px rgb(52 25 20 / 10%);
+    background: #fff7ef;
+  }
+  .delivery-sticker {
+    position: absolute;
+    right: -0.2rem;
+    top: 1.2rem;
+    display: grid;
+    gap: 0.15rem;
+    padding: 0.8rem 1rem;
+    border-radius: 1rem;
+    background: #fff;
+    color: var(--color-primary);
+    box-shadow: 0 12px 28px rgb(50 20 20 / 15%);
+    transform: rotate(4deg);
+  }
+  .delivery-sticker span {
+    font: 700 1rem var(--font-display);
+  }
+  .delivery-sticker strong {
+    color: var(--color-text);
+    font: 800 1.1rem/1.05 var(--font-display);
+  }
+  .delivery-sticker b {
+    position: absolute;
+    right: 0.55rem;
+    top: 0.45rem;
+    font-size: 0.8rem;
+  }
+  .delivery-pill {
+    position: absolute;
+    left: -0.35rem;
+    bottom: 0;
+    padding: 0.65rem 0.9rem;
+    border-radius: 999px;
+    background: #fff;
+    color: var(--color-text);
+    box-shadow: 0 8px 25px rgb(50 20 20 / 12%);
+    font-size: 0.82rem;
+    font-weight: 800;
+  }
+  .delivery-pill span {
+    color: var(--color-primary);
+    margin-right: 0.3rem;
+  }
+  .delivery-details,
+  .zones-section {
+    padding-top: clamp(3rem, 6vw, 5rem);
+  }
+  .section-heading {
+    max-width: 45rem;
+    margin: 0 auto 1.7rem;
+    text-align: center;
+  }
+  .section-heading h2,
+  .delivery-final-cta h2 {
+    margin: 0 0 0.6rem;
+    font-size: clamp(1.8rem, 4vw, 2.7rem);
+    letter-spacing: -0.035em;
+  }
+  .section-heading > p:last-child {
+    margin: 0.4rem 0 0;
+    color: var(--color-text-muted);
+  }
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: 1rem;
+  }
+  .step-card {
+    position: relative;
+    padding: 1.35rem;
+    border: 1px solid rgb(60 30 20 / 9%);
+    border-radius: 1.2rem;
+    background: #fff;
+    box-shadow: 0 8px 28px rgb(60 30 20 / 5%);
+    transition:
+      transform 0.2s,
+      box-shadow 0.2s;
+  }
+  .step-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 36px rgb(60 30 20 / 10%);
+  }
+  .step-number {
+    position: absolute;
+    right: 1rem;
+    top: 0.8rem;
+    color: rgb(199 20 21 / 20%);
+    font: 800 2rem var(--font-display);
+  }
+  .step-icon,
+  .zone-icon {
+    display: grid;
+    place-items: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 0.9rem;
+    background: #fff0e7;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+  }
+  .step-card h3,
+  .zone-card h3 {
+    margin: 1rem 0 0.35rem;
+    font: 700 1.25rem var(--font-display);
+  }
+  .step-card p,
+  .zone-card p {
+    margin: 0 0 0.9rem;
+    color: var(--color-text-muted);
+  }
+  .text-action {
+    color: var(--color-primary-dark);
+    font-weight: 800;
+  }
+  .step-hint {
+    display: block;
+    color: var(--color-text-muted);
+    font-size: 0.82rem;
+  }
+  .zones-section {
+    padding-bottom: clamp(2rem, 5vw, 4rem);
+  }
+  .section-heading.compact {
+    margin-bottom: 1.3rem;
+  }
+  .zone-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 1rem;
+  }
+  .zone-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding: 1.1rem;
+    border: 1px solid rgb(60 30 20 / 9%);
+    border-radius: 1.1rem;
+    background: #fff;
+  }
+  .zone-icon {
+    flex: none;
+  }
+  .zone-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .zone-card h3 {
+    margin: 0.05rem 0 0.25rem;
+  }
+  .zone-card p {
+    margin: 0 0 0.45rem;
+  }
+  .zone-status {
+    color: var(--color-text-muted);
+    font-size: 0.78rem;
+  }
+  .zone-phone {
+    align-self: center;
+    color: var(--color-primary-dark);
+    font-size: 0.85rem;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+  .info-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    gap: 1rem;
+    margin-top: 1.4rem;
+    padding: 1.2rem;
+    border-radius: 1.2rem;
+    background: #fff0e7;
+  }
+  .info-strip > div {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+  .info-symbol {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 50%;
+    background: #fff;
+    color: var(--color-primary);
+    font-size: 1.2rem;
+  }
+  .info-strip strong {
+    font: 700 1rem var(--font-display);
+  }
+  .info-strip p {
+    margin: 0.2rem 0 0;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+  .delivery-final-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: clamp(1.4rem, 4vw, 2.5rem);
+    border-radius: 1.5rem;
+    background: var(--color-text);
+    color: #fff;
+  }
+  .delivery-final-cta .eyebrow {
+    color: #ffb6b6;
+  }
+  .delivery-final-cta h2 {
+    max-width: 16ch;
+  }
+  .delivery-final-cta p:last-child {
+    margin: 0;
+    color: #e0d6d3;
+  }
+  .delivery-final-cta :global(.btn) {
+    flex: none;
+  }
+  @media (min-width: 800px) {
+    .delivery-hero-grid {
+      grid-template-columns: 1fr 0.9fr;
+      gap: 4rem;
+    }
+  }
+  @media (max-width: 640px) {
+    .delivery-final-cta {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    .delivery-image-wrap {
+      margin: 0.3rem 0.3rem 0;
+    }
+    .delivery-sticker {
+      right: 0;
+    }
+    .zone-card {
+      flex-wrap: wrap;
+    }
+  }
+</style>

@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../sections/Hero.astro';
+import AgencesSection from '../sections/AgencesSection.astro';
+import FeaturedMenu from '../sections/FeaturedMenu.astro';
+import Univers from '../sections/Univers.astro';
+import DeliveryBand from '../sections/DeliveryBand.astro';
+import Equipe from '../sections/Equipe.astro';
+import Faq from '../sections/Faq.astro';
+import { getImage } from 'astro:assets';
+import { content } from '../lib/content';
+import { getMedia } from '../lib/media';
+import { homeLd } from '../lib/seo';
+import { t } from '../lib/i18n';
+
+const logo = await getImage({ src: getMedia('logo').src, format: 'png' });
+---
+
+<BaseLayout
+  title={t(content.seo.siteTitle)}
+  description={t(content.seo.siteDescription)}
+  jsonLd={homeLd(Astro.site!, logo.src)}
+>
+  <Hero />
+  <AgencesSection />
+  <FeaturedMenu />
+  <Univers />
+  <DeliveryBand />
+  <Equipe />
+  <Faq />
+</BaseLayout>

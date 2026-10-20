@@ -1,0 +1,130 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import MenuItemCard from '../components/MenuItemCard.astro';
+import WhatsappButton from '../components/WhatsappButton.astro';
+import { getMenu } from '../lib/menu';
+import { content } from '../lib/content';
+import { t } from '../lib/i18n';
+
+const menu = getMenu();
+---
+
+<BaseLayout
+  title={`${t(content.sections.menu.titre)} | Raphaëlo`}
+  description={t(content.sections.menu.intro)}
+>
+  <div class="container page">
+    <h1>{t(content.sections.menu.titre)}</h1>
+    <p class="note">{t(menu.avertissement)}</p>
+    <nav aria-label="Catégories de la carte">
+      <ul class="jump">
+        {menu.categories.map((c) => (
+          <li>
+            <a class="btn btn--outline" href={`#${c.id}`}>
+              {t(c.label)}
+            </a>
+          </li>
+        ))}
+        <li>
+          <a class="btn btn--outline" href="#supplements">
+            Suppléments
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    {menu.categories.map((c) => (
+      <section id={c.id} aria-labelledby={`t-${c.id}`}>
+        <h2 id={`t-${c.id}`}>{t(c.label)}</h2>
+        {c.id === 'glacier' && <p class="slogan">{t(menu.sloganGlaces)}</p>}
+        <ul class="items">
+          {c.items.map((item) => (
+            <MenuItemCard item={item} />
+          ))}
+        </ul>
+      </section>
+    ))}
+
+    <section id="supplements" aria-labelledby="t-supplements">
+      <h2 id="t-supplements">Suppléments</h2>
+      <ul class="supp">
+        {menu.supplements.map((s) => (
+          <li>
+            <span>{t(s.nom)}</span>
+            <span class="amount">{s.affichage ?? 'Prix en agence'}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <p class="order">
+      <WhatsappButton
+        label={t(content.cta.commander)}
+        message="Bonjour Raphaëlo, je voudrais commander : "
+      />
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding-top: 2rem;
+  }
+  h1 {
+    margin: 0 0 0.5rem;
+    font-size: clamp(2rem, 7vw, 3rem);
+    color: var(--color-primary-dark);
+  }
+  .note {
+    margin: 0 0 1rem;
+    color: var(--color-text-muted);
+  }
+  .jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0 0 1rem;
+    padding: 0;
+    list-style: none;
+  }
+  section {
+    padding-top: 2rem;
+    scroll-margin-top: 5rem;
+  }
+  h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.75rem;
+  }
+  .slogan {
+    margin: 0 0 0.75rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+  .items {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  }
+  .supp {
+    max-width: 40rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .supp li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 2px dotted var(--color-text-muted);
+  }
+  .amount {
+    font-weight: 700;
+  }
+  .order {
+    margin: 2rem 0 0;
+  }
+</style>

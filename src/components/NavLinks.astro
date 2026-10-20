@@ -1,0 +1,46 @@
+---
+import { nav } from '../lib/nav';
+// Astro sert /menu/ avec une barre finale : on la retire pour comparer.
+const current = Astro.url.pathname.replace(/(.)\/$/, '$1');
+---
+
+<ul>
+  {nav.map((item) => (
+    <li>
+      <a
+        href={item.href}
+        aria-current={current === item.href ? 'page' : undefined}
+      >
+        {item.label}
+      </a>
+    </li>
+  ))}
+</ul>
+
+<style>
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 0.6rem;
+    border-radius: var(--radius-pill);
+    color: var(--color-text);
+    font: 600 1rem var(--font-display);
+    text-decoration: none;
+  }
+  a:hover {
+    background: var(--color-primary);
+    color: #fff;
+  }
+  a[aria-current='page'] {
+    box-shadow: inset 0 -3px var(--color-primary);
+  }
+</style>

@@ -1,0 +1,1761 @@
+{
+  "version": 2,
+  "devise": {
+    "code": "XAF",
+    "affichage": "FCFA"
+  },
+  "avertissement": {
+    "fr": "Les prix et la disponibilité peuvent varier selon l'agence.",
+    "en": "Prices and availability may vary by branch."
+  },
+  "sources": [
+    "Carte imprimée (texte copié par le client, avec erreurs de lecture) : prix principaux et compositions",
+    "Tableau texte avec tailles Part / Grande / Familiale (6 pizzas) : prix différents de la carte, voir conflits"
+  ],
+  "conflits": [
+    {
+      "sujet": "Prix des pizzas New York Cheese, Azzura, Hawaïenne, Margherita, Regina, Belle Paysanne",
+      "carte": "Prix unique (ex. Margherita 2 500, Regina 2 500)",
+      "tableau": "Part / Grande / Familiale (ex. Margherita grande 4 000, familiale 8 000)",
+      "action": "Dire laquelle des deux grilles est la bonne. Le site affiche pour l'instant le prix de la carte et garde les tailles dans `prix.tailles`."
+    }
+  ],
+  "agencesSurCarte": [
+    "Chapelle Ngousso",
+    "Carrefour Awae Escalier",
+    "Mimboman Shakespeare",
+    "Carrefour Nkolbisson"
+  ],
+  "sloganGlaces": {
+    "fr": "Le bon goût de ça / Le délice de ça",
+    "en": "The good taste of it / The delight of it"
+  },
+  "categories": [
+    {
+      "id": "pizza",
+      "ordre": 1,
+      "label": {
+        "fr": "Pizzas",
+        "en": "Pizzas"
+      },
+      "icone": "pizza"
+    },
+    {
+      "id": "grill",
+      "ordre": 2,
+      "label": {
+        "fr": "Fast-food & Grill",
+        "en": "Fast-food & Grill"
+      },
+      "icone": "flame"
+    },
+    {
+      "id": "glacier",
+      "ordre": 3,
+      "label": {
+        "fr": "Glacier",
+        "en": "Ice cream"
+      },
+      "icone": "ice-cream"
+    },
+    {
+      "id": "boissons",
+      "ordre": 4,
+      "label": {
+        "fr": "Boissons",
+        "en": "Drinks"
+      },
+      "icone": "cup-soda"
+    },
+    {
+      "id": "plateaux",
+      "ordre": 5,
+      "label": {
+        "fr": "Plateaux & menus",
+        "en": "Platters & menus"
+      },
+      "icone": "utensils"
+    },
+    {
+      "id": "salades",
+      "ordre": 6,
+      "label": {
+        "fr": "Salades",
+        "en": "Salads"
+      },
+      "icone": "salad"
+    }
+  ],
+  "items": [
+    {
+      "id": "new-york-cheese",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "New York Cheese",
+        "en": "New York Cheese"
+      },
+      "description": {
+        "fr": "Herbes de Provence, sauce tomate et fromage.",
+        "en": "Provence herbs, tomato sauce and cheese."
+      },
+      "ingredients": {
+        "fr": ["Herbes de Provence", "Sauce tomate", "Fromage"],
+        "en": ["Provence herbs", "tomato sauce", "cheese"]
+      },
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["pizza", "herbes de provence", "sauce tomate", "fromage"],
+      "prix": {
+        "montant": null,
+        "devise": "XAF",
+        "affichage": null,
+        "brut": "1000/2,000",
+        "aConfirmer": true,
+        "conflitAvecTableau": true,
+        "tailles": [
+          {
+            "id": "part",
+            "label": {
+              "fr": "Part",
+              "en": "Slice"
+            },
+            "montant": 2500
+          },
+          {
+            "id": "grande",
+            "label": {
+              "fr": "Grande",
+              "en": "Large"
+            },
+            "montant": 3500
+          },
+          {
+            "id": "familiale",
+            "label": {
+              "fr": "Familiale",
+              "en": "Family"
+            },
+            "montant": 6500
+          }
+        ]
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": "Carte : « 1000/2,000 » (probablement parts de tailles différentes, à confirmer). Tableau texte : part 2 500 / grande 3 500 / familiale 6 500."
+    },
+    {
+      "id": "azzura",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Azzura",
+        "en": "Azzura"
+      },
+      "description": {
+        "fr": "Saucisson, sauce tomate et fromage.",
+        "en": "Sausage, tomato sauce and cheese."
+      },
+      "ingredients": {
+        "fr": ["Saucisson", "Sauce tomate", "Fromage"],
+        "en": ["sausage", "tomato sauce", "cheese"]
+      },
+      "image": "plat-08-pizza-saucisse-fromage",
+      "imageMatch": "probable",
+      "imagesCandidates": [],
+      "tags": ["pizza", "saucisson", "sauce tomate", "fromage"],
+      "prix": {
+        "montant": 3500,
+        "devise": "XAF",
+        "affichage": "3 500 FCFA",
+        "brut": null,
+        "aConfirmer": true,
+        "conflitAvecTableau": true,
+        "tailles": [
+          {
+            "id": "part",
+            "label": {
+              "fr": "Part",
+              "en": "Slice"
+            },
+            "montant": 2500
+          },
+          {
+            "id": "grande",
+            "label": {
+              "fr": "Grande",
+              "en": "Large"
+            },
+            "montant": 3500
+          },
+          {
+            "id": "familiale",
+            "label": {
+              "fr": "Familiale",
+              "en": "Family"
+            },
+            "montant": 6500
+          }
+        ]
+      },
+      "vedette": true,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": "Le « 3.500 » imprimé se trouve entre les noms Azzura et Savoyarde : attribution à confirmer. Photo probable (saucisson + fromage)."
+    },
+    {
+      "id": "savoyarde",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Savoyarde",
+        "en": "Savoyarde"
+      },
+      "description": {
+        "fr": "Lardon, jambon, champignon, crème fraîche et fromage.",
+        "en": "Bacon bits, ham, mushroom, crème fraîche and cheese."
+      },
+      "ingredients": {
+        "fr": ["Lardon", "Jambon", "Champignon", "Crème fraîche", "Fromage"],
+        "en": ["bacon bits", "ham", "mushroom", "crème fraîche", "cheese"]
+      },
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["pizza", "lardon", "jambon", "champignon"],
+      "prix": {
+        "montant": 3500,
+        "devise": "XAF",
+        "affichage": "3 500 FCFA",
+        "brut": null,
+        "aConfirmer": true,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": "Prix 3 500 attribué par défaut (voir Azzura) : à confirmer."
+    },
+    {
+      "id": "milanaise",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Milanaise",
+        "en": "Milanaise"
+      },
+      "description": {
+        "fr": "Jambon, maïs doux, crème fraîche et fromage.",
+        "en": "Ham, sweetcorn, crème fraîche and cheese."
+      },
+      "ingredients": {
+        "fr": ["Jambon", "Maïs doux", "Crème fraîche", "Fromage"],
+        "en": ["ham", "sweetcorn", "crème fraîche", "cheese"]
+      },
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["pizza", "jambon", "maïs doux", "crème fraîche"],
+      "prix": {
+        "montant": 3000,
+        "devise": "XAF",
+        "affichage": "3 000 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": null
+    },
+    {
+      "id": "margherita",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Margherita",
+        "en": "Margherita"
+      },
+      "description": {
+        "fr": "Olives noires, sauce tomate et fromage.",
+        "en": "Black olives, tomato sauce and cheese."
+      },
+      "ingredients": {
+        "fr": ["Olives noires", "Sauce tomate", "Fromage"],
+        "en": ["black olives", "tomato sauce", "cheese"]
+      },
+      "image": "plat-06-pizza-fromage-olives",
+      "imageMatch": "probable",
+      "imagesCandidates": [],
+      "tags": ["pizza", "olives noires", "sauce tomate", "fromage"],
+      "prix": {
+        "montant": 2500,
+        "devise": "XAF",
+        "affichage": "2 500 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": true,
+        "tailles": [
+          {
+            "id": "grande",
+            "label": {
+              "fr": "Grande",
+              "en": "Large"
+            },
+            "montant": 4000
+          },
+          {
+            "id": "familiale",
+            "label": {
+              "fr": "Familiale",
+              "en": "Family"
+            },
+            "montant": 8000
+          }
+        ]
+      },
+      "vedette": true,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": "Tableau texte : grande 4 000 / familiale 8 000 (pas de part). Photo probable (fromage + olives noires)."
+    },
+    {
+      "id": "sicilia",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Sicilia",
+        "en": "Sicilia"
+      },
+      "description": {
+        "fr": "Sardines, maïs doux, crème fraîche et fromage.",
+        "en": "Sardines, sweetcorn, crème fraîche and cheese."
+      },
+      "ingredients": {
+        "fr": ["Sardines", "Maïs doux", "Crème fraîche", "Fromage"],
+        "en": ["sardines", "sweetcorn", "crème fraîche", "cheese"]
+      },
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["pizza", "sardines", "maïs doux", "crème fraîche"],
+      "prix": {
+        "montant": 3000,
+        "devise": "XAF",
+        "affichage": "3 000 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait", "poisson"],
+      "allergenesConfirmes": false,
+      "noteInterne": null
+    },
+    {
+      "id": "regina",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Regina",
+        "en": "Regina"
+      },
+      "description": {
+        "fr": "Jambon, champignon, sauce tomate et fromage.",
+        "en": "Ham, mushroom, tomato sauce and cheese."
+      },
+      "ingredients": {
+        "fr": ["Jambon", "Champignon", "Sauce tomate", "Fromage"],
+        "en": ["ham", "mushroom", "tomato sauce", "cheese"]
+      },
+      "image": "plat-07-pizza-jambon-champignons",
+      "imageMatch": "probable",
+      "imagesCandidates": [],
+      "tags": ["pizza", "jambon", "champignon", "sauce tomate"],
+      "prix": {
+        "montant": 2500,
+        "devise": "XAF",
+        "affichage": "2 500 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": true,
+        "tailles": [
+          {
+            "id": "grande",
+            "label": {
+              "fr": "Grande",
+              "en": "Large"
+            },
+            "montant": 4500
+          },
+          {
+            "id": "familiale",
+            "label": {
+              "fr": "Familiale",
+              "en": "Family"
+            },
+            "montant": 8000
+          }
+        ]
+      },
+      "vedette": true,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": "Tableau texte : grande 4 500 / familiale 8 000. Photo probable (jambon + champignons)."
+    },
+    {
+      "id": "cocody-golf",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Cocody Golf",
+        "en": "Cocody Golf"
+      },
+      "description": {
+        "fr": "Poulet, viande hachée, champignon, maïs doux, crème fraîche et fromage.",
+        "en": "Chicken, minced meat, mushroom, sweetcorn, crème fraîche and cheese."
+      },
+      "ingredients": {
+        "fr": [
+          "Poulet",
+          "Viande hachée",
+          "Champignon",
+          "Maïs doux",
+          "Crème fraîche",
+          "Fromage"
+        ],
+        "en": [
+          "chicken",
+          "minced meat",
+          "mushroom",
+          "sweetcorn",
+          "crème fraîche",
+          "cheese"
+        ]
+      },
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["pizza", "poulet", "viande hachée", "champignon"],
+      "prix": {
+        "montant": 5000,
+        "devise": "XAF",
+        "affichage": "5 000 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": null
+    },
+    {
+      "id": "all-american",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "All American",
+        "en": "All American"
+      },
+      "description": {
+        "fr": "Crème fraîche, poulet, viande hachée, jambon et fromage.",
+        "en": "Crème fraîche, chicken, minced meat, ham and cheese."
+      },
+      "ingredients": {
+        "fr": ["Crème fraîche", "Poulet", "Viande hachée", "Jambon", "Fromage"],
+        "en": ["crème fraîche", "chicken", "minced meat", "ham", "cheese"]
+      },
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["pizza", "crème fraîche", "poulet", "viande hachée"],
+      "prix": {
+        "montant": 4000,
+        "devise": "XAF",
+        "affichage": "4 000 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": null
+    },
+    {
+      "id": "belle-paysanne",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Belle Paysanne",
+        "en": "Belle Paysanne"
+      },
+      "description": {
+        "fr": "Jambon, lardon, champignon, sauce tomate et fromage.",
+        "en": "Ham, bacon bits, mushroom, tomato sauce and cheese."
+      },
+      "ingredients": {
+        "fr": ["Jambon", "Lardon", "Champignon", "Sauce tomate", "Fromage"],
+        "en": ["ham", "bacon bits", "mushroom", "tomato sauce", "cheese"]
+      },
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["pizza", "jambon", "lardon", "champignon"],
+      "prix": {
+        "montant": 3000,
+        "devise": "XAF",
+        "affichage": "3 000 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": true,
+        "tailles": [
+          {
+            "id": "grande",
+            "label": {
+              "fr": "Grande",
+              "en": "Large"
+            },
+            "montant": 4500
+          },
+          {
+            "id": "familiale",
+            "label": {
+              "fr": "Familiale",
+              "en": "Family"
+            },
+            "montant": 9000
+          }
+        ]
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": "Tableau texte : grande 4 500 / familiale 9 000."
+    },
+    {
+      "id": "hawaienne",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Hawaïenne",
+        "en": "Hawaïenne"
+      },
+      "description": {
+        "fr": "Jambon, ananas, sauce tomate et fromage.",
+        "en": "Ham, pineapple, tomato sauce and cheese."
+      },
+      "ingredients": {
+        "fr": ["Jambon", "Ananas", "Sauce tomate", "Fromage"],
+        "en": ["ham", "pineapple", "tomato sauce", "cheese"]
+      },
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["pizza", "jambon", "ananas", "sauce tomate"],
+      "prix": {
+        "montant": 2500,
+        "devise": "XAF",
+        "affichage": "2 500 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": true,
+        "tailles": [
+          {
+            "id": "part",
+            "label": {
+              "fr": "Part",
+              "en": "Slice"
+            },
+            "montant": 2500
+          },
+          {
+            "id": "grande",
+            "label": {
+              "fr": "Grande",
+              "en": "Large"
+            },
+            "montant": 3500
+          },
+          {
+            "id": "familiale",
+            "label": {
+              "fr": "Familiale",
+              "en": "Family"
+            },
+            "montant": 6500
+          }
+        ]
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": "Tableau texte : part 2 500 / grande 3 500 / familiale 6 500."
+    },
+    {
+      "id": "mexicaine",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Mexicaine",
+        "en": "Mexicaine"
+      },
+      "description": {
+        "fr": "Viande hachée, maïs doux, crème fraîche et fromage.",
+        "en": "Minced meat, sweetcorn, crème fraîche and cheese."
+      },
+      "ingredients": {
+        "fr": ["Viande hachée", "Maïs doux", "Crème fraîche", "Fromage"],
+        "en": ["minced meat", "sweetcorn", "crème fraîche", "cheese"]
+      },
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["pizza", "viande hachée", "maïs doux", "crème fraîche"],
+      "prix": {
+        "montant": 4000,
+        "devise": "XAF",
+        "affichage": "4 000 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": null
+    },
+    {
+      "id": "mont-manengouba",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Mont Manengouba",
+        "en": "Mont Manengouba"
+      },
+      "description": {
+        "fr": "Poulet, viande hachée, jambon, saucisson, œuf, crème fraîche et fromage.",
+        "en": "Chicken, minced meat, ham, sausage, egg, crème fraîche and cheese."
+      },
+      "ingredients": {
+        "fr": [
+          "Poulet",
+          "Viande hachée",
+          "Jambon",
+          "Saucisson",
+          "Œuf",
+          "Crème fraîche",
+          "Fromage"
+        ],
+        "en": [
+          "chicken",
+          "minced meat",
+          "ham",
+          "sausage",
+          "egg",
+          "crème fraîche",
+          "cheese"
+        ]
+      },
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["pizza", "poulet", "viande hachée", "jambon"],
+      "prix": {
+        "montant": 5000,
+        "devise": "XAF",
+        "affichage": "5 000 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait", "œuf"],
+      "allergenesConfirmes": false,
+      "noteInterne": null
+    },
+    {
+      "id": "dolce-vita",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Dolce Vita",
+        "en": "Dolce Vita"
+      },
+      "description": {
+        "fr": "Poulet, champignon, crème fraîche et fromage.",
+        "en": "Chicken, mushroom, crème fraîche and cheese."
+      },
+      "ingredients": {
+        "fr": ["Poulet", "Champignon", "Crème fraîche", "Fromage"],
+        "en": ["chicken", "mushroom", "crème fraîche", "cheese"]
+      },
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["pizza", "poulet", "champignon", "crème fraîche"],
+      "prix": {
+        "montant": 4000,
+        "devise": "XAF",
+        "affichage": "4 000 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": null
+    },
+    {
+      "id": "suisse",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Suisse",
+        "en": "Suisse"
+      },
+      "description": {
+        "fr": "Saucisson, champignon, crème fraîche et fromage.",
+        "en": "Sausage, mushroom, crème fraîche and cheese."
+      },
+      "ingredients": {
+        "fr": ["Saucisson", "Champignon", "Crème fraîche", "Fromage"],
+        "en": ["sausage", "mushroom", "crème fraîche", "cheese"]
+      },
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["pizza", "saucisson", "champignon", "crème fraîche"],
+      "prix": {
+        "montant": 2500,
+        "devise": "XAF",
+        "affichage": "2 500 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": null
+    },
+    {
+      "id": "thailandaise",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Thaïlandaise",
+        "en": "Thaïlandaise"
+      },
+      "description": {
+        "fr": "Poulet, ananas, sauce tomate et fromage.",
+        "en": "Chicken, pineapple, tomato sauce and cheese."
+      },
+      "ingredients": {
+        "fr": ["Poulet", "Ananas", "Sauce tomate", "Fromage"],
+        "en": ["chicken", "pineapple", "tomato sauce", "cheese"]
+      },
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["pizza", "poulet", "ananas", "sauce tomate"],
+      "prix": {
+        "montant": 4000,
+        "devise": "XAF",
+        "affichage": "4 000 FCFA",
+        "brut": "14000",
+        "aConfirmer": true,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": "Lu « 14000 » sur le texte (erreur de lecture probable) : 4 000 retenu, à confirmer."
+    },
+    {
+      "id": "vegetarienne",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Végétarienne",
+        "en": "Végétarienne"
+      },
+      "description": {
+        "fr": "Champignon, tomates, maïs doux, oignons et fromage.",
+        "en": "Mushroom, tomatoes, sweetcorn, onions and cheese."
+      },
+      "ingredients": {
+        "fr": ["Champignon", "Tomates", "Maïs doux", "Oignons", "Fromage"],
+        "en": ["mushroom", "tomatoes", "sweetcorn", "onions", "cheese"]
+      },
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": ["plat-09-pizza-poivrons-oignons"],
+      "tags": ["pizza", "champignon", "tomates", "maïs doux"],
+      "prix": {
+        "montant": 3000,
+        "devise": "XAF",
+        "affichage": "3 000 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": "Photo n°23 (poivrons/oignons/tomate) possiblement liée, mais d'origine à vérifier : non affichée."
+    },
+    {
+      "id": "riviera",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Riviera",
+        "en": "Riviera"
+      },
+      "description": {
+        "fr": "Crevettes, sardine, maïs doux, crème fraîche et fromage.",
+        "en": "Prawns, sardine, sweetcorn, crème fraîche and cheese."
+      },
+      "ingredients": {
+        "fr": ["Crevettes", "Sardine", "Maïs doux", "Crème fraîche", "Fromage"],
+        "en": ["prawns", "sardine", "sweetcorn", "crème fraîche", "cheese"]
+      },
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["pizza", "crevettes", "sardine", "maïs doux"],
+      "prix": {
+        "montant": 5000,
+        "devise": "XAF",
+        "affichage": "5 000 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait", "poisson", "crustacés"],
+      "allergenesConfirmes": false,
+      "noteInterne": "Nom lu « RIVIERA 3 » : le « 3 » est sans doute un artefact de lecture."
+    },
+    {
+      "id": "venitienne",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Vénitienne",
+        "en": "Vénitienne"
+      },
+      "description": {
+        "fr": "Viande hachée, poivron, oignon, sauce tomate et fromage.",
+        "en": "Minced meat, bell pepper, onion, tomato sauce and cheese."
+      },
+      "ingredients": {
+        "fr": ["Viande hachée", "Poivron", "Oignon", "Sauce tomate", "Fromage"],
+        "en": ["minced meat", "bell pepper", "onion", "tomato sauce", "cheese"]
+      },
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["pizza", "viande hachée", "poivron", "oignon"],
+      "prix": {
+        "montant": 3000,
+        "devise": "XAF",
+        "affichage": "3 000 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": null
+    },
+    {
+      "id": "monte-cristo",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Monte Cristo",
+        "en": "Monte Cristo"
+      },
+      "description": {
+        "fr": "Thon, maïs doux, sauce au choix et fromage.",
+        "en": "Tuna, sweetcorn, sauce of your choice and cheese."
+      },
+      "ingredients": {
+        "fr": ["Thon", "Maïs doux", "Sauce au choix", "Fromage"],
+        "en": ["tuna", "sweetcorn", "sauce of your choice", "cheese"]
+      },
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["pizza", "thon", "maïs doux", "sauce au choix"],
+      "prix": {
+        "montant": 5000,
+        "devise": "XAF",
+        "affichage": "5 000 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait", "poisson"],
+      "allergenesConfirmes": false,
+      "noteInterne": "Nom lu « MONTE CHRISTO 3 » sur la carte et « MONTE CRISTO » ailleurs : orthographe à confirmer."
+    },
+    {
+      "id": "mont-mandara",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Mont Mandara",
+        "en": "Mont Mandara"
+      },
+      "description": {
+        "fr": "Merguez, viande hachée, crème fraîche et fromage.",
+        "en": "Merguez sausage, minced meat, crème fraîche and cheese."
+      },
+      "ingredients": {
+        "fr": ["Merguez", "Viande hachée", "Crème fraîche", "Fromage"],
+        "en": ["merguez sausage", "minced meat", "crème fraîche", "cheese"]
+      },
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["pizza", "merguez", "viande hachée", "crème fraîche"],
+      "prix": {
+        "montant": 5000,
+        "devise": "XAF",
+        "affichage": "5 000 FCFA",
+        "brut": null,
+        "aConfirmer": true,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": "Un ingrédient illisible dans le texte fourni (« du Poigner… ») : composition à compléter."
+    },
+    {
+      "id": "mont-koupe",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Mont Koupé",
+        "en": "Mont Koupé"
+      },
+      "description": {
+        "fr": "Lardon, jambon, champignon, crème fraîche et fromage.",
+        "en": "Bacon bits, ham, mushroom, crème fraîche and cheese."
+      },
+      "ingredients": {
+        "fr": ["Lardon", "Jambon", "Champignon", "Crème fraîche", "Fromage"],
+        "en": ["bacon bits", "ham", "mushroom", "crème fraîche", "cheese"]
+      },
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["pizza", "lardon", "jambon", "champignon"],
+      "prix": {
+        "montant": 5000,
+        "devise": "XAF",
+        "affichage": "5 000 FCFA",
+        "brut": null,
+        "aConfirmer": true,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": "Un ingrédient illisible (« Cu… », probablement œuf) : composition à compléter."
+    },
+    {
+      "id": "orientale",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Orientale",
+        "en": "Orientale"
+      },
+      "description": {
+        "fr": "Merguez, oignons, poivron, sauce tomate et fromage.",
+        "en": "Merguez sausage, onions, bell pepper, tomato sauce and cheese."
+      },
+      "ingredients": {
+        "fr": ["Merguez", "Oignons", "Poivron", "Sauce tomate", "Fromage"],
+        "en": [
+          "merguez sausage",
+          "onions",
+          "bell pepper",
+          "tomato sauce",
+          "cheese"
+        ]
+      },
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["pizza", "merguez", "oignons", "poivron"],
+      "prix": {
+        "montant": 3000,
+        "devise": "XAF",
+        "affichage": "3 000 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": null
+    },
+    {
+      "id": "madona",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Madona",
+        "en": "Madona"
+      },
+      "description": {
+        "fr": "Poulet, jambon, champignon, crème fraîche et fromage.",
+        "en": "Chicken, ham, mushroom, crème fraîche and cheese."
+      },
+      "ingredients": {
+        "fr": ["Poulet", "Jambon", "Champignon", "Crème fraîche", "Fromage"],
+        "en": ["chicken", "ham", "mushroom", "crème fraîche", "cheese"]
+      },
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["pizza", "poulet", "jambon", "champignon"],
+      "prix": {
+        "montant": 4000,
+        "devise": "XAF",
+        "affichage": "4 000 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": "Écrit « HADONNA » dans la liste « Nos pizzas » : Madona retenu."
+    },
+    {
+      "id": "damboula",
+      "categorie": "pizza",
+      "section": "pizza",
+      "nom": {
+        "fr": "Damboula",
+        "en": "Damboula"
+      },
+      "description": {
+        "fr": "Pizza citée dans la liste « Nos pizzas » sans composition ni prix.",
+        "en": "Pizza listed in “Nos pizzas” with no composition or price."
+      },
+      "ingredients": null,
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": [],
+      "prix": {
+        "montant": null,
+        "devise": "XAF",
+        "affichage": null,
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "a_confirmer",
+      "visibleSurSite": false,
+      "alcool": false,
+      "allergenesProbables": [],
+      "allergenesConfirmes": false,
+      "noteInterne": "Nom lu « DAMBOULA » sans détails : à documenter ou ignorer."
+    },
+    {
+      "id": "chicken-wings-frites",
+      "categorie": "grill",
+      "section": "fast-food",
+      "nom": {
+        "fr": "Chicken Wings & Frites",
+        "en": "Chicken Wings & Fries"
+      },
+      "description": {
+        "fr": "Ailes de poulet servies avec des frites.",
+        "en": "Chicken wings served with fries."
+      },
+      "ingredients": null,
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["poulet", "frites", "fast-food"],
+      "prix": {
+        "montant": 2500,
+        "devise": "XAF",
+        "affichage": "2 500 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": [],
+      "allergenesConfirmes": false,
+      "noteInterne": "Pas de photo."
+    },
+    {
+      "id": "tacos-beef-frites",
+      "categorie": "grill",
+      "section": "fast-food",
+      "nom": {
+        "fr": "Tacos Beef & Frites",
+        "en": "Beef Tacos & Fries"
+      },
+      "description": {
+        "fr": "Tacos grillé au bœuf, servi avec des frites.",
+        "en": "Grilled beef tacos served with fries."
+      },
+      "ingredients": null,
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["tacos", "boeuf", "frites"],
+      "prix": {
+        "montant": 3000,
+        "devise": "XAF",
+        "affichage": "3 000 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten"],
+      "allergenesConfirmes": false,
+      "noteInterne": "Pas de photo."
+    },
+    {
+      "id": "tacos-chicken-frites",
+      "categorie": "grill",
+      "section": "fast-food",
+      "nom": {
+        "fr": "Tacos Chicken & Frites",
+        "en": "Chicken Tacos & Fries"
+      },
+      "description": {
+        "fr": "Tacos grillé au poulet en sauce crémeuse, frites glissées à l'intérieur, servi avec des frites et une touche de sauce blanche.",
+        "en": "Grilled chicken tacos in a creamy sauce, fries tucked inside, served with fries and a dab of white sauce."
+      },
+      "ingredients": null,
+      "image": "plat-04-tacos-poulet-frites",
+      "imageMatch": "probable",
+      "imagesCandidates": [],
+      "tags": ["tacos", "poulet", "frites"],
+      "prix": {
+        "montant": 3500,
+        "devise": "XAF",
+        "affichage": "3 500 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": true,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": "Photo n°18 probable ; le détail « sauce crémeuse » est tiré de la photo."
+    },
+    {
+      "id": "tacos-plateau-formule-b",
+      "categorie": "grill",
+      "section": "fast-food",
+      "nom": {
+        "fr": "Tacos Plateau – Formule B",
+        "en": "Tacos Platter – Formula B"
+      },
+      "description": {
+        "fr": "Tacos grillé garni de poulet, maïs, fromage fondu et salade, avec frites persillées et sauce blanche.",
+        "en": "Grilled tacos with chicken, corn, melted cheese and lettuce, with parsley fries and white sauce."
+      },
+      "ingredients": null,
+      "image": "plat-05-tacos-plateau-formule-b",
+      "imageMatch": "certain",
+      "imagesCandidates": [],
+      "tags": ["tacos", "poulet", "plateau"],
+      "prix": {
+        "montant": 7500,
+        "devise": "XAF",
+        "affichage": "7 500 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "hors_carte",
+      "visibleSurSite": false,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": "Photo : « B- 7500Fcfa » + « Pas disponible sur la carte ». Absent de la carte fournie : masqué."
+    },
+    {
+      "id": "glacier-cornet-rose",
+      "categorie": "glacier",
+      "section": "glaces",
+      "nom": {
+        "fr": "Glacier Cornet Rose",
+        "en": "Pink Waffle-Cone Sundae"
+      },
+      "description": {
+        "fr": "Une grande glace molle rose-mauve dans une coupe en forme de cornet gaufré, vermicelles colorés et gaufrettes croustillantes.",
+        "en": "A tall pink-mauve soft-serve in a waffle-cone-shaped glass with rainbow sprinkles and crunchy wafers."
+      },
+      "ingredients": null,
+      "image": "plat-02-glacier-cornet-rose",
+      "imageMatch": "certain",
+      "imagesCandidates": [],
+      "tags": ["glace", "gaufrette", "dessert"],
+      "prix": {
+        "montant": null,
+        "devise": "XAF",
+        "affichage": null,
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": true,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["lait", "gluten"],
+      "allergenesConfirmes": false,
+      "noteInterne": "Nom descriptif ; prix et parfum non indiqués sur la carte fournie."
+    },
+    {
+      "id": "coupe-glacee-rose-jaune",
+      "categorie": "glacier",
+      "section": "glaces",
+      "nom": {
+        "fr": "Coupe Glacée Duo Rose & Jaune",
+        "en": "Pink & Yellow Ice Cream Cup"
+      },
+      "description": {
+        "fr": "Une spirale de glace rose et jaune dans une coupe sur pied, avec gaufrettes et vermicelles multicolores.",
+        "en": "A pink and yellow ice-cream swirl in a stemmed glass with wafers and multicoloured sprinkles."
+      },
+      "ingredients": null,
+      "image": "plat-03-coupe-glacee-rose-jaune",
+      "imageMatch": "certain",
+      "imagesCandidates": [],
+      "tags": ["glace", "duo", "dessert"],
+      "prix": {
+        "montant": null,
+        "devise": "XAF",
+        "affichage": null,
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": ["lait", "gluten"],
+      "allergenesConfirmes": false,
+      "noteInterne": "Nom descriptif ; prix et parfums non indiqués."
+    },
+    {
+      "id": "jus-de-fruits-naturels",
+      "categorie": "boissons",
+      "section": "boissons",
+      "nom": {
+        "fr": "Jus de fruits naturels",
+        "en": "Natural fruit juices"
+      },
+      "description": {
+        "fr": "Jus naturels : cocktail, baobab, oseille, gingembre, mangue…",
+        "en": "Natural juices: cocktail, baobab, hibiscus (oseille), ginger, mango…"
+      },
+      "ingredients": null,
+      "image": "plat-10-boissons-verte-et-cafe-lait",
+      "imageMatch": "probable",
+      "imagesCandidates": [],
+      "tags": ["jus", "naturel"],
+      "prix": {
+        "montant": 500,
+        "devise": "XAF",
+        "affichage": "500 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": [],
+      "allergenesConfirmes": false,
+      "noteInterne": "Photo n°24 probable (deux boissons dont une crémeuse type baobab) : à confirmer."
+    },
+    {
+      "id": "bieres",
+      "categorie": "boissons",
+      "section": "boissons",
+      "nom": {
+        "fr": "Bières",
+        "en": "Beers"
+      },
+      "description": {
+        "fr": "Guinness, Heineken, Ice Black, Isenbeck, Booster…",
+        "en": "Guinness, Heineken, Ice Black, Isenbeck, Booster…"
+      },
+      "ingredients": null,
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["bière"],
+      "prix": {
+        "montant": 1000,
+        "devise": "XAF",
+        "affichage": "1 000 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": true,
+      "allergenesProbables": [],
+      "allergenesConfirmes": false,
+      "noteInterne": "Contient de l'alcool : prévoir la mention légale/âge sur le site."
+    },
+    {
+      "id": "boissons-gazeuses",
+      "categorie": "boissons",
+      "section": "boissons",
+      "nom": {
+        "fr": "Boissons gazeuses",
+        "en": "Soft drinks"
+      },
+      "description": {
+        "fr": "Sodas au choix.",
+        "en": "Sodas of your choice."
+      },
+      "ingredients": null,
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["soda"],
+      "prix": {
+        "montant": 1000,
+        "devise": "XAF",
+        "affichage": "1 000 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": [],
+      "allergenesConfirmes": false,
+      "noteInterne": "Mention « (TL) » illisible sur la carte (peut-être 33 cl ou 1 L) : format à confirmer."
+    },
+    {
+      "id": "malta",
+      "categorie": "boissons",
+      "section": "boissons",
+      "nom": {
+        "fr": "Malta",
+        "en": "Malta"
+      },
+      "description": {
+        "fr": "Boisson maltée.",
+        "en": "Malt drink."
+      },
+      "ingredients": null,
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["malta"],
+      "prix": {
+        "montant": 1000,
+        "devise": "XAF",
+        "affichage": "1 000 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": [],
+      "allergenesConfirmes": false,
+      "noteInterne": null
+    },
+    {
+      "id": "the-ou-cafe",
+      "categorie": "boissons",
+      "section": "boissons",
+      "nom": {
+        "fr": "Thé ou café",
+        "en": "Tea or coffee"
+      },
+      "description": {
+        "fr": "Thé ou café au choix.",
+        "en": "Tea or coffee of your choice."
+      },
+      "ingredients": null,
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["thé", "café"],
+      "prix": {
+        "montant": 500,
+        "devise": "XAF",
+        "affichage": "500 FCFA",
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": [],
+      "allergenesConfirmes": false,
+      "noteInterne": null
+    },
+    {
+      "id": "eau-minerale-1-5l",
+      "categorie": "boissons",
+      "section": "boissons",
+      "nom": {
+        "fr": "Eau minérale (1,5 L)",
+        "en": "Mineral water (1.5 L)"
+      },
+      "description": {
+        "fr": "Eau minérale en bouteille de 1,5 litre.",
+        "en": "Mineral water, 1.5-litre bottle."
+      },
+      "ingredients": null,
+      "image": null,
+      "imageMatch": null,
+      "imagesCandidates": [],
+      "tags": ["eau"],
+      "prix": {
+        "montant": 1000,
+        "devise": "XAF",
+        "affichage": "1 000 FCFA",
+        "brut": null,
+        "aConfirmer": true,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "disponible",
+      "visibleSurSite": true,
+      "alcool": false,
+      "allergenesProbables": [],
+      "allergenesConfirmes": false,
+      "noteInterne": "Les valeurs « 1000 » et « 1500 » sont séparées de leurs libellés dans le texte : 1 000 retenu, à confirmer."
+    },
+    {
+      "id": "plateau-gourmand",
+      "categorie": "plateaux",
+      "section": null,
+      "nom": {
+        "fr": "Plateau Gourmand",
+        "en": "Gourmet Platter"
+      },
+      "description": {
+        "fr": "Pizza à la viande hachée, oignons et poivrons, tacos grillé, frites et jus d'orange sur une même planche.",
+        "en": "Minced-meat, onion and pepper pizza, grilled tacos, fries and orange juice on one board."
+      },
+      "ingredients": null,
+      "image": "plat-01-plateau-gourmand",
+      "imageMatch": "certain",
+      "imagesCandidates": [],
+      "tags": ["pizza", "tacos", "frites", "jus"],
+      "prix": {
+        "montant": null,
+        "devise": "XAF",
+        "affichage": null,
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "hors_carte",
+      "visibleSurSite": false,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": "Non listé sur la carte : photo de présentation (la pizza ressemble à la Vénitienne). Masqué tant que non confirmé."
+    },
+    {
+      "id": "boisson-framboise-romarin",
+      "categorie": "boissons",
+      "section": null,
+      "nom": {
+        "fr": "Boisson Framboise & Romarin",
+        "en": "Raspberry & Rosemary Drink"
+      },
+      "description": {
+        "fr": "Boisson rose pétillante sur glace, framboises et brin de romarin.",
+        "en": "Sparkling pink drink over ice with raspberries and a rosemary sprig."
+      },
+      "ingredients": null,
+      "image": "plat-11-boisson-framboise-romarin",
+      "imageMatch": "certain",
+      "imagesCandidates": [],
+      "tags": [],
+      "prix": {
+        "montant": null,
+        "devise": "XAF",
+        "affichage": null,
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "a_confirmer",
+      "visibleSurSite": false,
+      "alcool": false,
+      "allergenesProbables": [],
+      "allergenesConfirmes": false,
+      "noteInterne": "Photo de banque d'images, absente de la carte : masquée."
+    },
+    {
+      "id": "salade-burrata-avocat",
+      "categorie": "salades",
+      "section": null,
+      "nom": {
+        "fr": "Salade Burrata, Avocat & Pain de campagne",
+        "en": "Burrata, Avocado & Sourdough Salad"
+      },
+      "description": {
+        "fr": "Roquette, tomates, olives noires, avocat, burrata aux herbes et pain de campagne.",
+        "en": "Arugula, tomatoes, black olives, avocado, herbed burrata and country bread."
+      },
+      "ingredients": null,
+      "image": "plat-12-salade-burrata-avocat",
+      "imageMatch": "certain",
+      "imagesCandidates": [],
+      "tags": [],
+      "prix": {
+        "montant": null,
+        "devise": "XAF",
+        "affichage": null,
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "a_confirmer",
+      "visibleSurSite": false,
+      "alcool": false,
+      "allergenesProbables": ["lait", "gluten"],
+      "allergenesConfirmes": false,
+      "noteInterne": "Photo de plateforme de livraison, plat absent de la carte : masqué."
+    },
+    {
+      "id": "table-pizzas-gratins-salade",
+      "categorie": "plateaux",
+      "section": null,
+      "nom": {
+        "fr": "Table Gourmande : pizzas, gratins & salade",
+        "en": "Feast Table: pizzas, gratins & salad"
+      },
+      "description": {
+        "fr": "Vue d'ensemble : pizza blanche, pizza végétarienne aux aubergines, gratins et salade de burrata.",
+        "en": "Overview: white pizza, vegetarian pizza with aubergine, gratins and burrata salad."
+      },
+      "ingredients": null,
+      "image": "plat-13-table-pizzas-gratins-salade",
+      "imageMatch": "certain",
+      "imagesCandidates": [],
+      "tags": [],
+      "prix": {
+        "montant": null,
+        "devise": "XAF",
+        "affichage": null,
+        "brut": null,
+        "aConfirmer": false,
+        "conflitAvecTableau": false,
+        "tailles": null
+      },
+      "vedette": false,
+      "statut": "a_confirmer",
+      "visibleSurSite": false,
+      "alcool": false,
+      "allergenesProbables": ["gluten", "lait"],
+      "allergenesConfirmes": false,
+      "noteInterne": "Photo de plateforme de livraison, plats absents de la carte : masquée."
+    }
+  ],
+  "supplements": [
+    {
+      "id": "supp-fromage-viande",
+      "nom": {
+        "fr": "Fromage / Viande (au choix)",
+        "en": "Cheese / Meat (your choice)"
+      },
+      "montant": 500,
+      "affichage": "500 FCFA",
+      "note": null
+    },
+    {
+      "id": "supp-sauce-legumes-frites",
+      "nom": {
+        "fr": "Sauce, légumes ou frites (au choix)",
+        "en": "Sauce, vegetables or fries (your choice)"
+      },
+      "montant": 100,
+      "affichage": "100 FCFA",
+      "note": "Libellé « SAUCE LÉGUMES/FRITES (AU CHOIX) 100 » : lecture à confirmer."
+    },
+    {
+      "id": "emballage-emporter",
+      "nom": {
+        "fr": "Emballage à emporter",
+        "en": "Takeaway packaging"
+      },
+      "montant": null,
+      "affichage": "100 / 200 / 500 FCFA",
+      "note": "Selon la taille de l'emballage."
+    }
+  ],
+  "valeursNonAttribuees": [
+    "1000 et 1500 (près de « Eau minérale 1,5 L »)",
+    "« Lan / Farve / 4000 » (fragment illisible dans la liste Nos pizzas)"
+  ],
+  "aCompleter": [
+    "prix des glaces",
+    "compositions manquantes (Mont Mandara, Mont Koupé)",
+    "prix New York Cheese",
+    "grille de prix à retenir (carte ou tableau)"
+  ]
+}

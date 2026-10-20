@@ -1,0 +1,69 @@
+---
+import { formatFcfa } from '../lib/format';
+
+interface Props {
+  name: string;
+  prices: { format: string; fcfa: number | null }[];
+  unconfirmed?: boolean;
+}
+const { name, prices, unconfirmed = false } = Astro.props;
+const showFormat = prices.length > 1;
+---
+
+<li>
+  <h3>{name}</h3>
+  <ul class="prices" data-todo={unconfirmed ? 'TODO_CONFIRMER' : undefined}>
+    {prices.map(
+      (p) =>
+        p.fcfa !== null && (
+          <li>
+            {showFormat && <span class="format">{p.format}</span>}
+            <span class="amount">{formatFcfa(p.fcfa)}</span>
+          </li>
+        ),
+    )}
+  </ul>
+</li>
+
+<style>
+  li {
+    list-style: none;
+  }
+  :global(.rows) > li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 2px dotted var(--color-text-muted);
+  }
+  h3 {
+    margin: 0;
+    font-size: 1.125rem;
+  }
+  .prices {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  .prices li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .format {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+  }
+  .amount {
+    padding: 0.2rem 0.8rem;
+    border-radius: var(--radius-pill);
+    background: var(--color-primary);
+    color: #fff;
+    font: 600 1.0625rem var(--font-display);
+    white-space: nowrap;
+  }
+</style>

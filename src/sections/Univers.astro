@@ -1,0 +1,51 @@
+---
+import GalleryImage from '../components/GalleryImage.astro';
+import { content } from '../lib/content';
+import { collectionImages } from '../lib/gallery';
+import { t } from '../lib/i18n';
+
+// Un aperçu de la galerie : façades et ambiances, sans texte incrusté.
+const preview = [
+  ...collectionImages('facades'),
+  ...collectionImages('interieurs'),
+]
+  .filter((i) => !i.overlay)
+  .slice(0, 4);
+---
+
+<section class="container">
+  <h2>{t(content.sections.univers.titre)}</h2>
+  <p class="intro">{t(content.sections.univers.texte)}</p>
+  <ul>
+    {preview.map((i) => (
+      <li>
+        <GalleryImage id={i.id} ratio="4 / 3" caption />
+      </li>
+    ))}
+  </ul>
+  <a class="btn btn--outline" href="/galerie">
+    {t(content.sections.galerie.titre)}
+  </a>
+</section>
+
+<style>
+  section {
+    padding-top: 3rem;
+  }
+  h2 {
+    margin: 0 0 0.5rem;
+    font-size: 2rem;
+  }
+  .intro {
+    margin: 0 0 1.5rem;
+    max-width: 40rem;
+  }
+  ul {
+    display: grid;
+    gap: 1rem;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    list-style: none;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  }
+</style>
