@@ -52,13 +52,6 @@ const bannerId = isBannerEligible(wanted)
       </p>
     </div>
     <div class="hero-visual">
-      <img
-        class="mascot-wash"
-        src="/images/mascotte-raphaelo.png"
-        alt=""
-        aria-hidden="true"
-        loading="eager"
-      />
       {bannerId && (
         <GalleryImage
           id={bannerId}
@@ -241,19 +234,6 @@ const bannerId = isBannerEligible(wanted)
     border-radius: 1.5rem;
     box-shadow: 0 22px 60px rgb(55 24 20 / 20%);
   }
-  .mascot-wash {
-    position: absolute;
-    z-index: 2;
-    pointer-events: none;
-    left: -2.2rem;
-    top: 4%;
-    width: clamp(150px, 22vw, 275px);
-    height: auto;
-    max-height: 82%;
-    object-fit: contain;
-    opacity: 0.92;
-    filter: drop-shadow(0 12px 18px rgb(40 15 15 / 10%));
-  }
   .image-caption {
     position: absolute;
     z-index: 3;
@@ -319,12 +299,6 @@ const bannerId = isBannerEligible(wanted)
     }
     .hero-visual {
       padding-left: 0.35rem;
-    }
-    .mascot-wash {
-      left: -0.5rem;
-      top: -1rem;
-      width: clamp(105px, 34vw, 155px);
-      max-height: 58%;
     }
     .hero-visual > :global(figure) img {
       height: 290px;
