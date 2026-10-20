@@ -1,0 +1,343 @@
+---
+import GalleryImage from '../components/GalleryImage.astro';
+import { content } from '../lib/content';
+import { getAgences, pickBanner } from '../lib/agences';
+import { getImage, isBannerEligible } from '../lib/gallery';
+import { t } from '../lib/i18n';
+import WhatsappButton from '../components/WhatsappButton.astro';
+
+const wanted = getImage(content.hero.image);
+const bannerId = isBannerEligible(wanted)
+  ? wanted.id
+  : getAgences()
+      .map(pickBanner)
+      .find((i) => i !== null)?.id;
+---
+
+<section class="hero">
+  <div class="hero-inner container">
+    <div class="hero-copy">
+      <p class="eyebrow">
+        PIZZAS <span>•</span> GLACES <span>•</span> GRILL
+      </p>
+      <h1>{t(content.hero.titre)}</h1>
+      <p class="lead">{t(content.hero.sousTitre)}</p>
+      <p class="support">
+        Des saveurs généreuses, des moments à partager et vos envies gourmandes
+        à Yaoundé.
+      </p>
+      <div class="proof" aria-label="Les atouts Raphaëlo">
+        <span>
+          <b aria-hidden="true">✦</b> Une carte gourmande
+        </span>
+        <span>
+          <b aria-hidden="true">☺</b> Une ambiance conviviale
+        </span>
+        <span>
+          <b aria-hidden="true">⌖</b> Plusieurs agences
+        </span>
+      </div>
+      <div class="actions">
+        <WhatsappButton
+          label="Commander sur WhatsApp"
+          message="Bonjour Raphaëlo Pizza, je souhaite passer une commande. Pouvez-vous m'aider ?"
+        />
+        <a class="btn btn--outline" href="/adresses">
+          Voir nos agences <span aria-hidden="true">→</span>
+        </a>
+      </div>
+      <p class="order-note">
+        Une question sur la livraison ?{' '}
+        <a href="/livraison">Consultez les informations de livraison</a>.
+      </p>
+    </div>
+    <div class="hero-visual">
+      <img
+        class="mascot-wash"
+        src="/images/mascotte-raphaelo.png"
+        alt=""
+        aria-hidden="true"
+        loading="eager"
+      />
+      {bannerId && (
+        <GalleryImage
+          id={bannerId}
+          variant="full"
+          loading="eager"
+          fetchpriority="high"
+        />
+      )}
+      <div class="image-caption">
+        <span class="caption-dot"></span> La convivialité Raphaëlo
+      </div>
+      <a class="floating-menu" href="/menu">
+        <span>À découvrir</span>
+        <strong>
+          Notre menu <span aria-hidden="true">↗</span>
+        </strong>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: clamp(2rem, 5vw, 4.5rem) 0;
+    background: linear-gradient(
+      112deg,
+      #fff8f0 0%,
+      var(--color-background) 52%,
+      #f9e8dc 100%
+    );
+    border-bottom: 1px solid rgb(199 20 21 / 10%);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background-image:
+      radial-gradient(
+        circle at 10% 18%,
+        rgb(199 20 21 / 7%) 0 2px,
+        transparent 3px
+      ),
+      radial-gradient(
+        circle at 48% 78%,
+        rgb(199 20 21 / 6%) 0 2px,
+        transparent 3px
+      );
+    background-size:
+      32px 32px,
+      42px 42px;
+    mask-image: linear-gradient(90deg, #000, transparent 75%);
+  }
+  .hero-inner {
+    display: grid;
+    align-items: center;
+    gap: 2.2rem;
+  }
+  .hero-copy {
+    position: relative;
+    z-index: 2;
+    padding: 0 0.1rem;
+  }
+  .eyebrow {
+    margin: 0 0 1rem;
+    color: #854128;
+    font: 800 0.8rem var(--font-display);
+    letter-spacing: 0.2em;
+  }
+  .eyebrow span {
+    color: var(--color-primary);
+    padding: 0 0.35rem;
+  }
+  h1 {
+    max-width: 13ch;
+    margin: 0 0 1rem;
+    color: var(--color-primary-dark);
+    font-size: clamp(2.7rem, 6vw, 5.25rem);
+    line-height: 0.99;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+  }
+  .lead {
+    max-width: 33rem;
+    margin: 0 0 0.5rem;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 800;
+    line-height: 1.45;
+  }
+  .support {
+    max-width: 32rem;
+    margin: 0 0 1.35rem;
+    color: var(--color-text-muted);
+  }
+  .proof {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem 1.2rem;
+    margin: 1.3rem 0 1.6rem;
+  }
+  .proof span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.88rem;
+    font-weight: 800;
+  }
+  .proof b {
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid rgb(199 20 21 / 30%);
+    border-radius: 50%;
+    color: var(--color-primary);
+    font-size: 1.05rem;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .actions :global(.btn) {
+    min-height: 54px;
+    padding-inline: 1.35rem;
+    box-shadow: 0 8px 22px rgb(50 20 20 / 8%);
+  }
+  .actions .btn--outline {
+    background: rgb(255 255 255 / 72%);
+  }
+  .actions .btn span {
+    margin-left: 0.45rem;
+  }
+  .order-note {
+    margin: 0.9rem 0 0;
+    color: var(--color-text-muted);
+    font-size: 0.88rem;
+  }
+  .order-note a {
+    color: var(--color-primary-dark);
+    font-weight: 800;
+    text-decoration: underline;
+    text-decoration-color: rgb(199 20 21 / 35%);
+    text-underline-offset: 3px;
+  }
+  .hero-visual {
+    position: relative;
+    min-width: 0;
+    padding: 0 0 1.25rem 1rem;
+  }
+  .hero-visual::before {
+    content: '';
+    position: absolute;
+    inset: 1rem 0 0 2rem;
+    border-radius: 2rem;
+    background: var(--color-primary);
+    opacity: 0.12;
+    transform: rotate(2.5deg);
+  }
+  .hero-visual :global(figure) {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: none !important;
+  }
+  .hero-visual :global(figure) {
+    margin: 0;
+  }
+  .hero-visual > :global(figure) img {
+    display: block;
+    width: 100%;
+    height: clamp(300px, 42vw, 530px);
+    object-fit: cover;
+    object-position: center;
+    border: 0;
+    border-radius: 1.5rem;
+    box-shadow: 0 22px 60px rgb(55 24 20 / 20%);
+  }
+  .mascot-wash {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+    left: -2.2rem;
+    top: 4%;
+    width: clamp(150px, 22vw, 275px);
+    height: auto;
+    max-height: 82%;
+    object-fit: contain;
+    opacity: 0.92;
+    filter: drop-shadow(0 12px 18px rgb(40 15 15 / 10%));
+  }
+  .image-caption {
+    position: absolute;
+    z-index: 3;
+    left: 2rem;
+    bottom: 2rem;
+    padding: 0.6rem 0.85rem;
+    border: 1px solid rgb(255 255 255 / 35%);
+    border-radius: 999px;
+    background: rgb(35 23 20 / 70%);
+    color: #fff;
+    font-size: 0.82rem;
+    font-weight: 800;
+    backdrop-filter: blur(10px);
+  }
+  .caption-dot {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-right: 0.45rem;
+    border-radius: 50%;
+    background: #43d17c;
+  }
+  .floating-menu {
+    position: absolute;
+    z-index: 4;
+    right: -0.2rem;
+    bottom: 0;
+    display: grid;
+    gap: 0.1rem;
+    min-width: 145px;
+    padding: 0.8rem 1rem;
+    border: 1px solid rgb(255 255 255 / 70%);
+    border-radius: 1rem;
+    background: #fffaf4;
+    color: var(--color-text);
+    text-decoration: none;
+    box-shadow: 0 14px 32px rgb(43 20 20 / 16%);
+    transform: rotate(-2deg);
+  }
+  .floating-menu span {
+    color: var(--color-text-muted);
+    font-size: 0.72rem;
+  }
+  .floating-menu strong {
+    color: var(--color-primary-dark);
+    font: 700 1.05rem var(--font-display);
+  }
+  @media (min-width: 800px) {
+    .hero-inner {
+      grid-template-columns: 0.93fr 1.07fr;
+      gap: clamp(2rem, 5vw, 4.5rem);
+    }
+  }
+  @media (max-width: 520px) {
+    .hero {
+      padding-block: 2rem;
+    }
+    .proof {
+      gap: 0.55rem 0.8rem;
+    }
+    .proof span {
+      font-size: 0.78rem;
+    }
+    .hero-visual {
+      padding-left: 0.35rem;
+    }
+    .mascot-wash {
+      left: -0.5rem;
+      top: -1rem;
+      width: clamp(105px, 34vw, 155px);
+      max-height: 58%;
+    }
+    .hero-visual > :global(figure) img {
+      height: 290px;
+      border-radius: 1rem;
+    }
+    .image-caption {
+      left: 0.8rem;
+      bottom: 1.7rem;
+      font-size: 0.72rem;
+    }
+    .floating-menu {
+      right: -0.15rem;
+      padding: 0.65rem 0.8rem;
+    }
+  }
+</style>

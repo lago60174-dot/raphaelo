@@ -1,0 +1,254 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  margin: 0;
+  background: var(--color-background);
+  color: var(--color-text);
+  font: 400 1rem/1.6 var(--font-body);
+}
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+:focus-visible {
+  outline: 3px solid var(--color-primary-dark);
+  outline-offset: 2px;
+}
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 20;
+  padding: 0.75rem 1rem;
+  background: var(--color-primary-dark);
+  color: #fff;
+  border-radius: var(--radius-card);
+}
+.skip:focus {
+  top: 0.5rem;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+main {
+  flex: 1;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 1.25rem;
+  border-radius: var(--radius-pill);
+  border: 2px solid transparent;
+  font: 600 1rem var(--font-display);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease,
+    color 180ms ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgb(45 20 20 / 12%);
+}
+.btn:active {
+  transform: translateY(0);
+}
+.btn--whatsapp {
+  background: var(--color-success);
+  color: #fff;
+}
+.btn--whatsapp:hover {
+  filter: brightness(1.15);
+}
+.btn--outline {
+  border-color: var(--color-primary);
+  color: var(--color-primary-dark);
+}
+.btn--outline:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+.container {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Couche UI commune : plus de profondeur sans modifier la charte existante. */
+::selection {
+  background: var(--color-primary);
+  color: #fff;
+}
+.container {
+  width: min(100% - 2rem, 76rem);
+  padding-inline: 0;
+}
+section.container {
+  padding-bottom: 0.5rem;
+}
+.page {
+  padding-block: clamp(2rem, 5vw, 4rem);
+}
+.page > h1 {
+  letter-spacing: -0.035em;
+}
+.page > p {
+  max-width: 48rem;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+img {
+  transition: filter 220ms ease;
+}
+@media (prefers-reduced-motion: no-preference) {
+  main > section,
+  .page > * {
+    animation: rise-in 420ms both;
+  }
+  @keyframes rise-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+@media (max-width: 767px) {
+  .container {
+    width: min(100% - 1.25rem, 76rem);
+  }
+  .btn {
+    min-height: 46px;
+    padding-inline: 1rem;
+  }
+}
+
+a {
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.2em;
+}
+a:not([data-allow-underline]) {
+  text-decoration: none;
+}
+
+/* Finition commune des pages secondaires : mêmes surfaces, rythmes et actions que l'accueil. */
+.page {
+  width: min(100% - 2rem, 76rem);
+  margin-inline: auto;
+}
+.page h1 {
+  margin: 0 0 0.7rem;
+  font-size: clamp(2.25rem, 5vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--color-primary-dark);
+}
+.page h2 {
+  margin: 2rem 0 0.75rem;
+  font-size: clamp(1.45rem, 3vw, 2.1rem);
+  letter-spacing: -0.025em;
+}
+.page h3 {
+  font-size: 1.2rem;
+}
+.page p {
+  line-height: 1.75;
+}
+.page .intro {
+  max-width: 48rem;
+  color: var(--color-text-muted);
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+}
+.page :is(ul, ol) {
+  padding-left: 1.35rem;
+}
+.page li {
+  padding-block: 0.18rem;
+}
+.page :is(figure, .card, article) {
+  border-radius: var(--radius-card);
+}
+.page figure img {
+  border-radius: var(--radius-card);
+}
+.page :is(.actions, .cta, .buttons) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+.page a:not(.btn):not([data-allow-underline]) {
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+.page a:not(.btn):not([data-allow-underline]):hover {
+  text-decoration: underline;
+  text-decoration-color: color-mix(
+    in srgb,
+    var(--color-primary) 45%,
+    transparent
+  );
+}
+.page :is(input, select, textarea) {
+  max-width: 100%;
+  border: 1px solid rgb(60 30 20 / 18%);
+  border-radius: 0.8rem;
+  padding: 0.75rem 0.9rem;
+  font: inherit;
+}
+.page :is(blockquote, .notice, .info) {
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0 0.8rem 0.8rem 0;
+  background: color-mix(
+    in srgb,
+    var(--color-primary) 6%,
+    var(--color-background)
+  );
+  padding: 1rem 1.2rem;
+}
+@media (max-width: 767px) {
+  .page {
+    width: min(100% - 1.25rem, 76rem);
+  }
+  .page .btn {
+    width: auto;
+    max-width: 100%;
+  }
+}

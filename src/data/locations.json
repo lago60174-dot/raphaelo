@@ -1,0 +1,90 @@
+[
+  {
+    "id": "mimboman",
+    "name": "Mimboman",
+    "district": "Mimboman",
+    "landmark": "Shakespeare, juste après la Pharmacie Genevoise",
+    "phone": "+237 670 70 70 66",
+    "hours": "11 h à 21 h 30",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rapha%C3%ABlo%20Pizza%20Mimboman%20Yaound%C3%A9",
+    "source": "cooltchop.com (fiche du point de vente)",
+    "toConfirm": ["hours", "mapsUrl", "phone"]
+  },
+  {
+    "id": "ngousso",
+    "name": "Ngousso",
+    "district": "Ngousso",
+    "landmark": "Entre la chapelle et le carrefour Le Paradis",
+    "phone": null,
+    "hours": "11 h à 21 h 30",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rapha%C3%ABlo%20Pizza%20Ngousso%20Yaound%C3%A9",
+    "source": "maligah.com ; TikTok @raphaelo.pizza",
+    "toConfirm": ["hours", "mapsUrl", "phone"]
+  },
+  {
+    "id": "simbock",
+    "name": "Simbock",
+    "district": "Simbock",
+    "landmark": "Entrée Simbock, 100 m en allant vers Tradex",
+    "phone": "+237 690 90 90 76",
+    "hours": "11 h à 21 h 30",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rapha%C3%ABlo%20Pizza%20Simbock%20Yaound%C3%A9",
+    "source": "maligah.com ; TikTok @raphaelo.pizza",
+    "toConfirm": ["hours", "mapsUrl", "phone"]
+  },
+  {
+    "id": "nsimeyong",
+    "name": "Nsimeyong (Vogt)",
+    "district": "Nsimeyong",
+    "landmark": "Après le carrefour Vogt, en face du Collège Vogt",
+    "phone": "+237 693 93 93 11",
+    "hours": "11 h à 21 h 30",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rapha%C3%ABlo%20Pizza%20Nsimeyong%20Yaound%C3%A9",
+    "source": "cooltchop.com (fiche du point de vente)",
+    "toConfirm": ["hours", "mapsUrl", "phone"]
+  },
+  {
+    "id": "awae",
+    "name": "Awae",
+    "district": "Awae",
+    "landmark": "Awaé Escalier",
+    "phone": null,
+    "hours": "11 h à 21 h 30",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rapha%C3%ABlo%20Pizza%20Awae%20Yaound%C3%A9",
+    "source": "triptap.com ; cooltchop.com",
+    "toConfirm": ["hours", "mapsUrl", "phone"]
+  },
+  {
+    "id": "odza",
+    "name": "Odza",
+    "district": "Odza",
+    "landmark": "Entrée Koweït",
+    "phone": "+237 693 93 93 11",
+    "hours": "11 h à 21 h 30",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rapha%C3%ABlo%20Pizza%20Odza%20Yaound%C3%A9",
+    "source": "cooltchop.com (fiche du point de vente)",
+    "toConfirm": ["hours", "mapsUrl", "phone"]
+  },
+  {
+    "id": "ekie",
+    "name": "Ekié",
+    "district": "Ekié",
+    "landmark": null,
+    "phone": null,
+    "hours": "11 h à 21 h 30",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rapha%C3%ABlo%20Pizza%20Eki%C3%A9%20Yaound%C3%A9",
+    "source": "cooltchop.com (fiche du point de vente)",
+    "toConfirm": ["hours", "mapsUrl", "phone", "landmark"]
+  },
+  {
+    "id": "nkolbissong",
+    "name": "Nkolbissong",
+    "district": "Nkolbissong",
+    "landmark": null,
+    "phone": null,
+    "hours": "11 h à 21 h 30",
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Rapha%C3%ABlo%20Pizza%20Nkolbissong%20Yaound%C3%A9",
+    "source": "cooltchop.com (fiche du point de vente)",
+    "toConfirm": ["hours", "mapsUrl", "phone", "landmark"]
+  }
+]

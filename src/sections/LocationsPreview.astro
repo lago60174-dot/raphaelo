@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import LocationItem from '../components/LocationItem.astro';
+
+const locations = await getCollection('locations');
+---
+
+<section class="container">
+  <h2>Nos adresses à Yaoundé</h2>
+  <ul>
+    {locations.map((l) => (
+      <LocationItem
+        name={l.data.name}
+        landmark={l.data.landmark}
+        phone={l.data.phone}
+        mapsUrl={l.data.mapsUrl}
+      />
+    ))}
+  </ul>
+  <a class="btn btn--outline" href="/adresses">
+    Toutes les adresses
+  </a>
+</section>
+
+<style>
+  section {
+    padding-top: 3rem;
+  }
+  h2 {
+    margin: 0 0 1rem;
+    font-size: 2rem;
+  }
+  ul {
+    display: grid;
+    gap: 0.5rem 2rem;
+    margin: 0 0 1.5rem;
+    padding: 0;
+    list-style: none;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  }
+</style>

@@ -1,0 +1,254 @@
+{
+  "version": 1,
+  "seo": {
+    "siteTitle": {
+      "fr": "Raphaëlo – La Meilleure Pizza à Yaoundé",
+      "en": "Raphaëlo – The Best Pizza in Yaoundé"
+    },
+    "siteDescription": {
+      "fr": "Pizzas, glaces et grill dans 7 agences Raphaëlo à Yaoundé : Mimboman, Odza, Awae, Simbock, Ngousso, Kolbisson et Carrefour Tam-Tam.",
+      "en": "Pizza, ice cream and grill at 7 Raphaëlo branches in Yaoundé: Mimboman, Odza, Awae, Simbock, Ngousso, Kolbisson and Carrefour Tam-Tam."
+    },
+    "keywords": [
+      "Raphaëlo",
+      "pizza Yaoundé",
+      "glacier Yaoundé",
+      "restaurant Yaoundé",
+      "tacos Yaoundé",
+      "pizzeria Cameroun"
+    ],
+    "ogImage": "/images/agences/mimboman-shakespeare/mimboman-01-facade-terrasse.webp"
+  },
+  "hero": {
+    "titre": {
+      "fr": "La Meilleure Pizza",
+      "en": "The Best Pizza"
+    },
+    "sousTitre": {
+      "fr": "Pizzas, glaces et grill dans 7 agences à Yaoundé.",
+      "en": "Pizza, ice cream and grill across 7 branches in Yaoundé."
+    },
+    "cta": {
+      "primaire": {
+        "fr": "Trouver mon agence",
+        "en": "Find my branch"
+      },
+      "secondaire": {
+        "fr": "Voir la carte",
+        "en": "See the menu"
+      }
+    },
+    "image": "mimboman-02-salle-fresque-pizza"
+  },
+  "sections": {
+    "agences": {
+      "titre": {
+        "fr": "Nos 7 agences à Yaoundé",
+        "en": "Our 7 branches in Yaoundé"
+      },
+      "intro": {
+        "fr": "Choisissez l'agence la plus proche de vous : même signature rouge, même gourmandise.",
+        "en": "Pick the branch closest to you: same red signature, same indulgence."
+      }
+    },
+    "menu": {
+      "titre": {
+        "fr": "La carte",
+        "en": "The menu"
+      },
+      "intro": {
+        "fr": "Pizzas, grill et glaces : un aperçu de nos incontournables.",
+        "en": "Pizza, grill and ice cream: a taste of our must-haves."
+      }
+    },
+    "univers": {
+      "titre": {
+        "fr": "Notre univers",
+        "en": "Our world"
+      },
+      "texte": {
+        "fr": "Du rouge vif de nos façades aux fresques de notre chef pizzaiolo, chaque agence Raphaëlo partage la même signature : une ambiance chaleureuse, des pizzas généreuses, des glaces gourmandes et du grill.",
+        "en": "From the bright red of our façades to our pizza chef murals, every Raphaëlo branch shares the same signature: a warm atmosphere, generous pizzas, indulgent ice cream and grill."
+      }
+    },
+    "galerie": {
+      "titre": {
+        "fr": "En images",
+        "en": "In pictures"
+      },
+      "filtres": [
+        {
+          "id": "tous",
+          "label": {
+            "fr": "Tout",
+            "en": "All"
+          }
+        },
+        {
+          "id": "facades",
+          "label": {
+            "fr": "Façades",
+            "en": "Façades"
+          }
+        },
+        {
+          "id": "interieurs",
+          "label": {
+            "fr": "Ambiances",
+            "en": "Interiors"
+          }
+        },
+        {
+          "id": "plats",
+          "label": {
+            "fr": "Plats",
+            "en": "Dishes"
+          }
+        },
+        {
+          "id": "equipe",
+          "label": {
+            "fr": "Équipe",
+            "en": "Team"
+          }
+        }
+      ]
+    },
+    "equipe": {
+      "titre": {
+        "fr": "Une équipe en rouge",
+        "en": "A team in red"
+      },
+      "texte": {
+        "fr": "Nos équipes en polos rouges vous accueillent avec le sourire dans chaque agence.",
+        "en": "Our teams in red polos welcome you with a smile at every branch."
+      }
+    }
+  },
+  "cta": {
+    "itineraire": {
+      "fr": "Itinéraire",
+      "en": "Directions"
+    },
+    "appeler": {
+      "fr": "Appeler",
+      "en": "Call"
+    },
+    "commander": {
+      "fr": "Commander sur WhatsApp",
+      "en": "Order on WhatsApp"
+    },
+    "voirAgence": {
+      "fr": "Voir l'agence",
+      "en": "View branch"
+    },
+    "voirCarte": {
+      "fr": "Voir toute la carte",
+      "en": "See full menu"
+    },
+    "bientot": {
+      "fr": "Bientôt disponible",
+      "en": "Coming soon"
+    }
+  },
+  "faq": [
+    {
+      "q": {
+        "fr": "Où trouver Raphaëlo ?",
+        "en": "Where can I find Raphaëlo?"
+      },
+      "a": {
+        "fr": "Raphaëlo compte 7 agences à Yaoundé : Mimboman (Shakespeare), Odza (Borne 10 – entrée Koweït), Awae (Escalier), Simbock, Chapelle Ngousso, Kolbisson et Carrefour Tam-Tam.",
+        "en": "Raphaëlo has 7 branches in Yaoundé: Mimboman (Shakespeare), Odza (Borne 10 – Koweït entrance), Awae (Escalier), Simbock, Chapelle Ngousso, Kolbisson and Carrefour Tam-Tam."
+      }
+    },
+    {
+      "q": {
+        "fr": "Que propose Raphaëlo ?",
+        "en": "What does Raphaëlo serve?"
+      },
+      "a": {
+        "fr": "Des pizzas, des glaces (Glacier) et des plats grillés comme les tacos.",
+        "en": "Pizza, ice cream (Glacier) and grilled dishes such as tacos."
+      }
+    },
+    {
+      "q": {
+        "fr": "Peut-on manger sur place ?",
+        "en": "Can I dine in?"
+      },
+      "a": {
+        "fr": "Oui, les agences proposent des places assises en salle et/ou en terrasse.",
+        "en": "Yes, branches offer seating indoors and/or on a terrace."
+      }
+    },
+    {
+      "q": {
+        "fr": "Peut-on commander à emporter ?",
+        "en": "Can I order takeaway?"
+      },
+      "a": {
+        "fr": "Oui, la carte propose un emballage à emporter (100, 200 ou 500 FCFA selon la taille).",
+        "en": "Yes, the menu offers takeaway packaging (100, 200 or 500 FCFA depending on size)."
+      }
+    },
+    {
+      "q": {
+        "fr": "Quelles pizzas proposez-vous ?",
+        "en": "Which pizzas do you serve?"
+      },
+      "a": {
+        "fr": "Plus de 20 recettes : Margherita, Regina, Hawaïenne, Végétarienne, Belle Paysanne, Mexicaine, Thaïlandaise ou encore Mont Manengouba. Retrouvez toutes les compositions sur la page Carte.",
+        "en": "More than 20 recipes: Margherita, Regina, Hawaïenne, Végétarienne, Belle Paysanne, Mexicaine, Thaïlandaise or Mont Manengouba. See all compositions on the Menu page."
+      }
+    },
+    {
+      "q": {
+        "fr": "Quelles boissons proposez-vous ?",
+        "en": "Which drinks do you serve?"
+      },
+      "a": {
+        "fr": "Jus de fruits naturels (cocktail, baobab, oseille, gingembre, mangue…), boissons gazeuses, Malta, thé ou café, eau minérale et bières.",
+        "en": "Natural fruit juices (cocktail, baobab, hibiscus, ginger, mango…), soft drinks, Malta, tea or coffee, mineral water and beers."
+      }
+    },
+    {
+      "q": {
+        "fr": "Faites-vous de la livraison ?",
+        "en": "Do you deliver?"
+      },
+      "a": null,
+      "aCompleter": true
+    },
+    {
+      "q": {
+        "fr": "Quels sont les horaires d'ouverture ?",
+        "en": "What are the opening hours?"
+      },
+      "a": null,
+      "aCompleter": true
+    },
+    {
+      "q": {
+        "fr": "Quels moyens de paiement acceptez-vous ?",
+        "en": "Which payment methods do you accept?"
+      },
+      "a": null,
+      "aCompleter": true
+    },
+    {
+      "q": {
+        "fr": "Peut-on réserver ou organiser un événement ?",
+        "en": "Can I book a table or organise an event?"
+      },
+      "a": null,
+      "aCompleter": true
+    }
+  ],
+  "footer": {
+    "mentions": {
+      "fr": "© Raphaëlo – La Meilleure Pizza. Tous droits réservés.",
+      "en": "© Raphaëlo – The Best Pizza. All rights reserved."
+    }
+  }
+}

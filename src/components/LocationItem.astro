@@ -1,0 +1,86 @@
+---
+import { telUrl } from '../lib/format';
+
+interface Props {
+  name: string;
+  landmark: string | null;
+  phone: string | null;
+  mapsUrl: string | null;
+  // Page Adresses : affiche aussi les horaires et signale un téléphone manquant.
+  detailed?: boolean;
+  hours?: string | null;
+  hoursUnconfirmed?: boolean;
+  level?: 2 | 3;
+}
+const {
+  name,
+  landmark,
+  phone,
+  mapsUrl,
+  detailed = false,
+  hours = null,
+  hoursUnconfirmed = false,
+  level = 3,
+} = Astro.props;
+const Heading = `h${level}` as const;
+---
+
+<li>
+  <Heading>{name}</Heading>
+  <p data-todo={landmark === null ? 'TODO_CONFIRMER' : undefined}>
+    {landmark ?? 'Adresse à confirmer'}
+  </p>
+  {detailed && hours && (
+    <p data-todo={hoursUnconfirmed ? 'TODO_CONFIRMER' : undefined}>
+      Horaires : {hours}
+    </p>
+  )}
+  {detailed && !phone && (
+    <p data-todo="TODO_CONFIRMER">Téléphone à confirmer</p>
+  )}
+  <p class="links">
+    {phone && (
+      <a href={telUrl(phone)} aria-label={`Appeler ${name} : ${phone}`}>
+        {phone}
+      </a>
+    )}
+    {mapsUrl && (
+      <a
+        href={mapsUrl}
+        rel="noopener noreferrer"
+        target="_blank"
+        aria-label={`Itinéraire vers ${name}`}
+      >
+        Itinéraire
+      </a>
+    )}
+  </p>
+</li>
+
+<style>
+  li {
+    padding: 0.75rem 0 0.75rem 1.25rem;
+    border-left: 6px solid var(--color-primary);
+  }
+  li :global(h2),
+  li :global(h3) {
+    margin: 0;
+    font-size: 1.125rem;
+  }
+  p {
+    margin: 0.125rem 0;
+    color: var(--color-text-muted);
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1rem;
+  }
+  .links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--color-primary-dark);
+    font-weight: 700;
+  }
+</style>

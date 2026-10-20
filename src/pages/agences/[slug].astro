@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GalleryImage from '../../components/GalleryImage.astro';
+import Placeholder from '../../components/Placeholder.astro';
+import {
+  agenceGallery,
+  getAgence,
+  getAgences,
+  pickBanner,
+  pickCover,
+  serviceLabels,
+} from '../../lib/agences';
+import { content } from '../../lib/content';
+import { telUrl } from '../../lib/format';
+import { agenceLd } from '../../lib/seo';
+import { t } from '../../lib/i18n';
+
+export function getStaticPaths() {
+  return getAgences().map((a) => ({ params: { slug: a.slug } }));
+}
+
+const agence = getAgence(Astro.params.slug!);
+const banner = pickBanner(agence);
+const cover = banner ?? pickCover(agence);
+const gallery = agenceGallery(agence);
+const services = serviceLabels(agence);
+const soon = t(content.cta.bientot);
+const ld = agenceLd(agence, Astro.site!, cover?.src ?? null);
+const hours = agence.horaires ? Object.entries(agence.horaires) : null;
+---
+
+<BaseLayout
+  title={t(agence.seo.title)}
+  description={t(agence.seo.description)}
+  jsonLd={ld}
+>
+  <div class="container page">
+    <p class="crumb">
+      <a href="/adresses">← {t(content.sections.agences.titre)}</a>
+    </p>
+    <h1>{agence.nom}</h1>
+    <div class="top">
+      <div class="text">
+        <p class="lead">{t(agence.description)}</p>
+        <ul class="strengths">
+          {agence.pointsForts.map((p) => (
+            <li>{t(p)}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="media">
+        {cover ? (
+          <GalleryImage
+            id={cover.id}
+            variant={banner ? 'full' : 'thumb'}
+            loading="eager"
+          />
+        ) : (
+          <Placeholder />
+        )}
+      </div>
+    </div>
+
+    <h2>Infos pratiques</h2>
+    <dl>
+      <div>
+        <dt>Quartier</dt>
+        <dd>
+          {agence.quartier}, {agence.repere}
+        </dd>
+      </div>
+      <div>
+        <dt>Adresse</dt>
+        <dd data-todo={agence.adresse ? undefined : 'TODO_CONFIRMER'}>
+          {agence.adresse ?? soon}
+        </dd>
+      </div>
+      <div>
+        <dt>Téléphone</dt>
+        <dd data-todo={agence.telephone ? undefined : 'TODO_CONFIRMER'}>
+          {agence.telephone ? (
+            <a href={telUrl(agence.telephone)}>{agence.telephone}</a>
+          ) : (
+            soon
+          )}
+        </dd>
+      </div>
+      <div>
+        <dt>Horaires</dt>
+        <dd data-todo={hours ? undefined : 'TODO_CONFIRMER'}>
+          {hours
+            ? hours.map(([jour, h]) => (
+                <span class="hour">
+                  {jour} : {h}
+                </span>
+              ))
+            : soon}
+        </dd>
+      </div>
+      {services.length > 0 && (
+        <div>
+          <dt>Services</dt>
+          <dd>{services.join(' · ')}</dd>
+        </div>
+      )}
+    </dl>
+    <p>
+      <a
+        class="btn btn--outline"
+        href={agence.mapsUrl}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        {t(content.cta.itineraire)}
+      </a>
+    </p>
+
+    {gallery.length > 0 && (
+      <section>
+        <h2>{t(content.sections.galerie.titre)}</h2>
+        <ul class="gallery">
+          {gallery.map((i) => (
+            <li>
+              <GalleryImage id={i.id} ratio="4 / 3" caption />
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+  </div>
+</BaseLayout>
+
+<style>
+  .page {
+    padding-top: 2rem;
+  }
+  .crumb {
+    margin: 0 0 0.5rem;
+  }
+  .crumb a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--color-primary-dark);
+    font-weight: 700;
+  }
+  h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(2rem, 7vw, 3rem);
+    color: var(--color-primary-dark);
+    text-wrap: balance;
+  }
+  h2 {
+    margin: 2rem 0 0.75rem;
+    font-size: 1.75rem;
+  }
+  .top {
+    display: grid;
+    gap: 1.5rem;
+    align-items: start;
+  }
+  .lead {
+    margin: 0 0 1rem;
+    font-size: 1.125rem;
+  }
+  .strengths {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+  dl {
+    max-width: 40rem;
+    margin: 0 0 1rem;
+  }
+  dl div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 2px dotted var(--color-text-muted);
+  }
+  dt {
+    font: 600 1.0625rem var(--font-display);
+  }
+  dd {
+    margin: 0;
+    text-align: right;
+  }
+  .hour {
+    display: block;
+  }
+  dd a {
+    color: var(--color-primary-dark);
+    font-weight: 700;
+  }
+  .gallery {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  }
+  @media (min-width: 768px) {
+    .top {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

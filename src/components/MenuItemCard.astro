@@ -1,0 +1,152 @@
+---
+import GalleryImage from './GalleryImage.astro';
+import { getPublicImage, settings } from '../lib/gallery';
+import { priceLabel, type MenuItem } from '../lib/menu';
+import { t } from '../lib/i18n';
+
+interface Props {
+  item: MenuItem;
+}
+const { item } = Astro.props;
+const photo = item.image ? getPublicImage(item.image) : null;
+const tags = item.tags.filter((tag) => tag !== item.categorie);
+const stockPhotos: Record<string, { src: string; alt: string }> = {
+  pizza: {
+    src: 'https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?auto=format&fit=crop&w=900&q=82',
+    alt: `Image d’illustration d’une pizza pour ${t(item.nom)}`,
+  },
+  grill: {
+    src: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=900&q=82',
+    alt: `Image d’illustration d’un plat fast-food pour ${t(item.nom)}`,
+  },
+  glacier: {
+    src: 'https://images.unsplash.com/photo-1560008581-09826d1de69e?auto=format&fit=crop&w=900&q=82',
+    alt: `Image d’illustration d’une glace pour ${t(item.nom)}`,
+  },
+  boissons: {
+    src: 'https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=900&q=82',
+    alt: `Image d’illustration d’une boisson pour ${t(item.nom)}`,
+  },
+  plateaux: {
+    src: 'https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=82',
+    alt: `Image d’illustration d’un plateau gourmand pour ${t(item.nom)}`,
+  },
+  salades: {
+    src: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=82',
+    alt: `Image d’illustration d’une salade pour ${t(item.nom)}`,
+  },
+};
+const stockPhoto = stockPhotos[item.categorie] ?? stockPhotos.pizza;
+---
+
+<li>
+  <div class="media">
+    {photo ? (
+      <GalleryImage id={photo.id} ratio="4 / 3" />
+    ) : (
+      <div class="stock-wrap">
+        <img
+          class="stock-photo"
+          src={stockPhoto.src}
+          alt={stockPhoto.alt}
+          loading="lazy"
+          decoding="async"
+        />
+        <span class="stock-label">Photo d’illustration</span>
+      </div>
+    )}
+  </div>
+  <div class="head">
+    <h3>{t(item.nom)}</h3>
+    <p
+      class="price"
+      data-todo={item.prix.aConfirmer ? 'TODO_CONFIRMER' : undefined}
+    >
+      {priceLabel(item)}
+    </p>
+  </div>
+  <p>{t(item.description)}</p>
+  {tags.length > 0 && <p class="tags">{tags.join(' · ')}</p>}
+  {item.alcool && <p class="alcohol">{t(settings.alcoholWarning)}</p>}
+</li>
+
+<style>
+  li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0.75rem;
+    list-style: none;
+    border: 1px solid rgb(40 20 20 / 10%);
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: 0 8px 26px rgb(40 20 20 / 5%);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+  li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgb(40 20 20 / 10%);
+  }
+  .stock-wrap {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    aspect-ratio: 4/3;
+    background: #f3ece7;
+  }
+  .stock-photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease;
+  }
+  li:hover .stock-photo {
+    transform: scale(1.04);
+  }
+  .stock-label {
+    position: absolute;
+    left: 0.55rem;
+    bottom: 0.55rem;
+    background: rgb(30 24 24 / 75%);
+    color: #fff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.01em;
+  }
+  .head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  h3 {
+    margin: 0;
+    font-size: 1.125rem;
+  }
+  p {
+    margin: 0;
+  }
+  .price {
+    padding: 0.15rem 0.8rem;
+    border-radius: var(--radius-pill);
+    background: var(--color-primary);
+    color: #fff;
+    font: 600 1.0625rem var(--font-display);
+    white-space: nowrap;
+  }
+  .tags {
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+  }
+  .alcohol {
+    color: var(--color-primary-dark);
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+</style>

@@ -1,0 +1,64 @@
+---
+import TextPage from '../layouts/TextPage.astro';
+import WhatsappButton from '../components/WhatsappButton.astro';
+import { getSite } from '../lib/site';
+import { telUrl } from '../lib/format';
+
+const site = await getSite();
+const phones = site.deliveryZones.filter((z) => z.phone !== null);
+const social = [
+  { label: 'TikTok', href: site.tiktokUrl },
+  { label: 'Facebook', href: site.facebookUrl },
+].filter(
+  (l): l is { label: string; href: string } =>
+    l.href !== null &&
+    (l.label !== 'Facebook' || !site.toConfirm.includes('facebookUrl')),
+);
+---
+
+<TextPage
+  heading="Contact"
+  title="Contact | Raphaëlo Pizza"
+  description="Contacter Raphaëlo Pizza : WhatsApp, téléphone, adresses et réseaux sociaux."
+>
+  {site.toConfirm.includes('whatsapp') ? (
+    <p>
+      Le numéro WhatsApp doit encore être confirmé par l’entreprise. En
+      attendant, consulte les{' '}
+      <a href="/adresses">agences et leurs itinéraires</a>.
+    </p>
+  ) : (
+    <>
+      <p>Le plus simple pour commander ou poser une question : WhatsApp.</p>
+      <p>
+        <WhatsappButton
+          label="Écrire sur WhatsApp"
+          message="Bonjour Raphaëlo Pizza, "
+        />
+      </p>
+    </>
+  )}
+  {phones.length > 0 && (
+    <ul>
+      {phones.map((z) => (
+        <li>
+          {z.city} : <a href={telUrl(z.phone!)}>{z.phone}</a>
+        </li>
+      ))}
+    </ul>
+  )}
+  <p>
+    Un point de vente près de chez toi ? Voir les{' '}
+    <a href="/adresses">adresses et téléphones par quartier</a>.
+  </p>
+  <h2>Réseaux sociaux</h2>
+  <ul>
+    {social.map((l) => (
+      <li>
+        <a href={l.href} rel="noopener noreferrer" target="_blank">
+          {l.label}
+        </a>
+      </li>
+    ))}
+  </ul>
+</TextPage>

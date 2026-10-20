@@ -1,0 +1,52 @@
+---
+import { formatFcfa } from '../lib/format';
+
+interface Props {
+  name: string;
+  prices: { format: string; fcfa: number | null }[];
+  unconfirmed?: boolean;
+}
+const { name, prices, unconfirmed = false } = Astro.props;
+const known = prices.flatMap((p) => (p.fcfa === null ? [] : [p.fcfa]));
+const from = known.length ? Math.min(...known) : null;
+---
+
+<article>
+  <h3>{name}</h3>
+  {from !== null && (
+    <p class="price" data-todo={unconfirmed ? 'TODO_CONFIRMER' : undefined}>
+      {known.length > 1 && <span>dès </span>}
+      {formatFcfa(from)}
+    </p>
+  )}
+</article>
+
+<style>
+  article {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem;
+    border-radius: var(--radius-card);
+    background: #fff;
+    border: 2px solid var(--color-text);
+  }
+  h3 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  .price {
+    align-self: flex-start;
+    margin: 0;
+    padding: 0.25rem 0.9rem;
+    border-radius: var(--radius-pill);
+    background: var(--color-primary);
+    color: #fff;
+    font: 600 1.125rem var(--font-display);
+  }
+  .price span {
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
+</style>

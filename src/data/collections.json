@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "collections": {
+    "facades": [
+      "mimboman-01-facade-terrasse",
+      "odza-01-facade-escalier-colimacon",
+      "odza-02-capture-tiktok-entree-koweit",
+      "awae-01-facade-pizza-glacier",
+      "simbock-01-totem-pizza-glacier-grill",
+      "simbock-02-entree-facade",
+      "ngousso-01-facade-terrasse-couverte",
+      "kolbisson-01-devanture-terrasse"
+    ],
+    "interieurs": [
+      "mimboman-02-salle-fresque-pizza",
+      "mimboman-03-salle-clients",
+      "kolbisson-02-terrasse-mur-logo",
+      "tam-tam-01-salle-fresque-chef"
+    ],
+    "equipe": ["awae-02-equipe-polos-rouges"],
+    "visuels": ["ngousso-02-visuel-ouverture"],
+    "plats": [
+      "plat-01-plateau-gourmand",
+      "plat-02-glacier-cornet-rose",
+      "plat-03-coupe-glacee-rose-jaune",
+      "plat-04-tacos-poulet-frites",
+      "plat-05-tacos-plateau-formule-b",
+      "plat-06-pizza-fromage-olives",
+      "plat-07-pizza-jambon-champignons",
+      "plat-08-pizza-saucisse-fromage",
+      "plat-09-pizza-poivrons-oignons",
+      "plat-10-boissons-verte-et-cafe-lait",
+      "plat-11-boisson-framboise-romarin",
+      "plat-12-salade-burrata-avocat",
+      "plat-13-table-pizzas-gratins-salade"
+    ]
+  }
+}

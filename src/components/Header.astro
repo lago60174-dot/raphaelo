@@ -1,0 +1,75 @@
+---
+import { Image } from 'astro:assets';
+import { getMedia } from '../lib/media';
+import NavLinks from './NavLinks.astro';
+import WhatsappButton from './WhatsappButton.astro';
+const logo = getMedia('logo');
+---
+
+<header class="top">
+  <a class="brand" href="/" aria-label="Raphaëlo Pizza, accueil">
+    <Image src={logo.src} alt={logo.alt} width={140} loading="eager" />
+  </a>
+  <nav class="desktop" aria-label="Navigation principale">
+    <NavLinks />
+  </nav>
+  <WhatsappButton
+    label="Commander"
+    message="Bonjour Raphaëlo Pizza, je souhaite passer une commande. Pouvez-vous m’aider ?"
+  />
+</header>
+<nav class="mobile" aria-label="Navigation principale">
+  <NavLinks />
+</nav>
+
+<style>
+  .top {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.45rem max(1rem, calc((100vw - 76rem) / 2));
+    background: color-mix(in srgb, var(--color-background) 94%, transparent);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 8px 24px rgb(40 20 20 / 6%);
+    border-bottom: 2px solid
+      color-mix(in srgb, var(--color-primary) 65%, transparent);
+  }
+  /* Le logo a un fond blanc : "multiply" le fond devient transparent sur le crème. */
+  .brand {
+    flex: none;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .brand img {
+    width: clamp(100px, 12vw, 132px);
+    height: auto;
+  }
+  .brand img {
+    display: block;
+    mix-blend-mode: multiply;
+  }
+  .mobile {
+    overflow-x: auto;
+    position: sticky;
+    top: 4.5rem;
+    z-index: 9;
+    padding: 0.35rem 0.6rem;
+    background: var(--color-background);
+    border-bottom: 1px solid rgb(30 20 20 / 8%);
+  }
+  .desktop {
+    display: none;
+  }
+  @media (min-width: 768px) {
+    .desktop {
+      display: block;
+    }
+    .mobile {
+      display: none;
+    }
+  }
+</style>

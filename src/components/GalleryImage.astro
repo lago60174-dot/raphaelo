@@ -1,0 +1,61 @@
+---
+import { getImage } from '../lib/gallery';
+
+interface Props {
+  id: string;
+  variant?: 'thumb' | 'full';
+  ratio?: string;
+  loading?: 'eager' | 'lazy';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  caption?: boolean;
+}
+const {
+  id,
+  variant = 'thumb',
+  ratio,
+  loading = 'lazy',
+  fetchpriority,
+  caption = false,
+} = Astro.props;
+const image = getImage(id);
+
+// Très basse résolution : jamais de grand format. Les miniatures font au plus 480 px de large.
+const useFull = variant === 'full' && image.quality !== 'tres_basse_resolution';
+const nativeWidth = useFull ? image.width : Math.min(image.width, 480);
+const style = `aspect-ratio:${ratio ?? `${image.width} / ${image.height}`};object-position:${image.objectPosition};background-image:url(${image.blurDataURL})`;
+---
+
+<!-- max-width = largeur native : l'image n'est jamais agrandie au-delà de sa résolution. -->
+<figure style={`max-width:${nativeWidth}px`}>
+  <img
+    src={useFull ? image.src : image.thumb}
+    alt={image.alt}
+    width={image.width}
+    height={image.height}
+    loading={loading}
+    fetchpriority={fetchpriority}
+    decoding="async"
+    style={style}
+  />
+  {caption && <figcaption>{image.caption}</figcaption>}
+</figure>
+
+<style>
+  figure {
+    margin: 0;
+  }
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    background-size: cover;
+    border-radius: var(--radius-card);
+    border: 2px solid var(--color-text);
+  }
+  figcaption {
+    margin-top: 0.25rem;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+  }
+</style>
